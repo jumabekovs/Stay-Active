@@ -26,7 +26,7 @@ class Club(models.Model):
 
 class ClubImage(models.Model):
     images = models.FileField(default='default_club_logo.jpg', upload_to='club_images', blank=True, null=True)
-    club = models.ForeignKey(Club, related_name='img', on_delete=models.CASCADE)
+    club = models.ForeignKey(Club, related_name='images', on_delete=models.CASCADE)
 
     @property
     def image_url(self):

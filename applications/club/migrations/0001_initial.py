@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('images', models.FileField(blank=True, default='default_club_logo.jpg', null=True, upload_to='club_images')),
-                ('club', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='img', to='club.club')),
+                ('club', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='images', to='club.club')),
             ],
         ),
     ]
