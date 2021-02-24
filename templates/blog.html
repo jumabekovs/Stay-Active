@@ -29,7 +29,7 @@
                         <div class="single-blog-item">
                             <div class="blog-img set-bg" data-setbg="{{ post.image.url }}">
                                 <div class="blog-time">
-                                    <h2><span>{{ post.created_date }}</span></h2>
+                                    <h2><span>{{ post.created_date | date }}</span></h2>
                                 </div>
                             </div>
                             <div class="blog-text">
@@ -39,11 +39,9 @@
                                 </ul>
                                 <p>{{ post.content }}</p>
                                 <div class="posted-by">
-                                    <div class="posted-by-img">
-        <!--                                    <images src="{% static 'images/blog/posted.png' %}" alt="">-->
-                                    </div>
+
                                     <div class="posted-by-name">
-                                        <span>{{ post.sub_title }}</span>
+                                        <span>{{ post.content }}</span>
                                     </div>
                                 </div>
                                 <a href="{% url 'blog-detail' post.sub_title %}" class="primary-btn">Read More</a>
