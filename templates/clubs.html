@@ -11,7 +11,7 @@
                         <h2>Classes</h2>
                         <div class="links">
                             <a href="{% url 'home' %}">Home</a>
-                            <a href="{% url 'clubs' %}" class="rt-breadcrumb">Classes</a>
+                            <a href="{% url 'clubs' %}" class="rt-breadcrumb">Clubs</a>
                         </div>
                     </div>
                 </div>
@@ -23,19 +23,16 @@
     <section class="classes-section">
         <div class="container">
             <div class="row">
-                {% for club in clubs %}
+                {% for club in club_types %}
                 <div class="col-md-4 col-sm-6">
                     <div class="single-classes">
                         <div class="classes-img">
-                            <img src="{{ club.image.url }}" alt="">
+                            <a href="{% url 'club-detail' club.pk %}"><img src="{{ club.image.url }}" alt=""></a>
                         </div>
                         <div class="classes-text">
                             <h5>{{ club.type }}</h5>
-                            <a href="{% url 'clubs' %}"><h6>{{ club.name }}</h6></a>
+                            <a href="{% url 'club-detail' club.pk %}"><h6>{{ club.name }}</h6></a>
                             <p>(for {{ club.gender_segregation }})</p>
-<!--                            <p>{{ club.area }}</p>-->
-<!--                            <p>{{ club.phone }}</p>-->
-<!--                            <p>{{ club.email }}</p>-->
                             <p>{{ club.address }}</p>
                         </div>
                     </div>

@@ -91,66 +91,38 @@
             </div>
             <div class="single-slide set-bg" data-setbg="{% static 'img/bg-2.jpg' %}">
                 <a href="https://www.youtube.com/watch?v=VJ6q5g4bx9U" class="play-btn pop-up"><i class="fa fa-play"></i></a>
-                <h1>Be Fit.Top Trainer</h1>
+                <h1>Be Fit.Best Pools</h1>
                 <a href="#" class="primary-btn">Read More</a>
             </div>
             <div class="single-slide set-bg" data-setbg="{% static 'img/bg-3.jpg' %}">
                 <a href="https://www.youtube.com/watch?v=VJ6q5g4bx9U" class="play-btn pop-up"><i class="fa fa-play"></i></a>
-                <h1>Be Fit.Top Body</h1>
+                <h1>Be Fit.Awesome Yoga</h1>
                 <a href="#" class="primary-btn">Read More</a>
             </div>
         </div>
     </section>
     <!-- Hero Slider End -->
     <!-- Features Section Begin -->
+    {% for club_category in club_categories %}
     <section class="features-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
+           <div class="row">
+                <div class="col-md-4 col-sm-6">
                     <div class="single-features">
                         <div class="features-img">
-                            <a href="#"><img src="{% static 'img/features/feature-1.jpg'%}" alt=""></a>
+                            <a href="{% url 'clubs-category' club_category.slug %}"><img src="{{ club_category.logo.url }}" alt=""></a>
                         </div>
                         <div class="feature-text">
                             <div class="feature-icon">
-                                <a href="#"><img src="{% static 'img/features/icon-1.png' %}"  alt=""></a>
+                                <a href="{% url 'clubs-category' club_category.slug  %}"><img src="{% static 'img/features/icon-1.png' %}"  alt=""></a>
                             </div>
-                            <a href="#"><h5>Fitness Centers</h5></a>
+                            <a href="{% url 'clubs-category' club_category.slug %}"><h5>{{club_category.title}}</h5></a>
                             <p>Pellentesque dictum nisl in nibh dictum volutpat nec a quam. Vivamus suscipit nisl quis
                                 nulla pretium, vitae ornare leo.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="single-features">
-                        <div class="features-img">
-                            <a href="#"><img src="{% static 'img/features/feature-2.jpg' %}" alt=""></a>
-                        </div>
-                        <div class="feature-text">
-                            <div class="feature-icon">
-                                <a href="#"><img src="{% static 'img/features/icon-2.png' %}" alt=""></a>
-                            </div>
-                            <a href="#"><h5>Swimming Pools</h5></a>
-                            <p>Pellentesque dictum nisl in nibh dictum volutpat nec a quam. Vivamus suscipit nisl quis
-                                nulla pretium, vitae ornare leo.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="single-features">
-                        <div class="features-img">
-                            <a href="#"><img src="{% static 'img/features/feature-3.jpg' %}" alt=""></a>
-                        </div>
-                        <div class="feature-text">
-                            <div class="feature-icon">
-                                <a href="#"><img src="{% static 'img/features/icon-3.png' %}" alt=""></a>
-                            </div>
-                            <a href="3"><h5>Yoga Centers</h5></a>
-                            <p>Pellentesque dictum nisl in nibh dictum volutpat nec a quam. Vivamus suscipit nisl quis
-                                nulla pretium, vitae ornare leo.</p>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
+
             </div>
         </div>
     </section>
@@ -274,14 +246,7 @@
                             <span>Next</span>
                             <h5>Upcomming Classes</h5>
                         </div>
-                        <ul class="classes-time">
-                            <li><img src="{% static 'img/stopwatch.png' %}" alt=""> Gym Fitness <span>11:00 - 12:00</span></li>
-                            <li><img src="{% static 'img/stopwatch.png' %}" alt=""> Pilates <span>12:00 - 13:00</span></li>
-                            <li><img src="{% static 'img/stopwatch.png' %}" alt=""> Spinning <span>13:00 - 14:00</span></li>
-                            <li><img src="{% static 'img/stopwatch.png' %}" alt=""> Yoga <span>14:00 - 15:00</span></li>
-                            <li><img src="{% static 'img/stopwatch.png' %}" alt=""> Gym Fitness <span>15:00 - 16:00</span></li>
-                            <li><img src="{% static 'img/stopwatch.png' %}" alt=""> Pilates <span>16:00 - 17:00</span></li>
-                        </ul>
+
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">

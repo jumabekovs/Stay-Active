@@ -15,9 +15,6 @@ class BlogView(ListView):
     context_object_name = 'posts'
 
 
-# class BlogDetailView(DetailView):
-    # model = Post
-
 def blog_detail(request, sub_title):
     post = Post.objects.get(sub_title=sub_title)
     extends = post.comment.all()

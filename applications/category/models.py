@@ -46,6 +46,7 @@ class CategoryClub(models.Model):
     title = models.CharField(max_length=60, blank=True)
 
     logo = models.FileField(upload_to='category_logo', null=True, blank=True)
+    description = models.TextField(blank=True, null=True)
 
     class Meta:
         verbose_name = _('Club Category')
