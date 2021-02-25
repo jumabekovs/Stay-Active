@@ -8,7 +8,7 @@ from .models import *
 class ClubView(ListView):
     model = Club
     template_name = 'clubs.html'
-    context_object_name = 'clubs'
+    context_object_name = 'club_types'
     ordering = ['type']
 
 

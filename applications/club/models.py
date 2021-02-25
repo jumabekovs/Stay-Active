@@ -11,7 +11,8 @@ GENDER_SEGREGATION = (
 
 
 class Club(models.Model):
-    name = models.CharField(max_length=255, blank=False)
+    slug = models.SlugField(max_length=100)
+    name = models.CharField(max_length=255)
     type = models.ForeignKey(CategoryClub, related_name='club_types', on_delete=models.DO_NOTHING)
     gender_segregation = models.CharField(max_length=25, choices=GENDER_SEGREGATION)
     email = models.EmailField(verbose_name='email', max_length=255, unique=True)
