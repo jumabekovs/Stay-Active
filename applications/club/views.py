@@ -1,7 +1,12 @@
 from django.shortcuts import render
+from django.views.generic import ListView
+
 from .models import *
 
 
-def club(request):
-    clubs = Club.objects.all().order_by('type')
-    return render(request, 'clubs.html', locals())
+
+class ClubView(ListView):
+    model = Club
+    template_name = 'clubs.html'
+    context_object_name = 'clubs'
+    ordering = ['type']

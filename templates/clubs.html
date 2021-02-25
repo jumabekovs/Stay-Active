@@ -31,6 +31,11 @@
                         </div>
                         <div class="classes-text">
                             <h5>{{ club.type }}</h5>
+                            <a href="{% url 'clubs' %}"><h6>{{ club.name }}</h6></a>
+                            <p>(for {{ club.gender_segregation }})</p>
+<!--                            <p>{{ club.area }}</p>-->
+<!--                            <p>{{ club.phone }}</p>-->
+<!--                            <p>{{ club.email }}</p>-->
                             <p>{{ club.address }}</p>
                         </div>
                     </div>

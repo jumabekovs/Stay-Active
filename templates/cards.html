@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="breadcrumb-area set-bg" data-setbg="{% static 'img/blog/blog-bg.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb-content">
+                        <h2>Blog</h2>
+                        <div class="links">
+                            <a href="{% url 'home' %}">Home</a>
+                            <a href="{% url 'cards' %}" class="rt-breadcrumb">Offers</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+ <  <section class="upcoming-event-section spad-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+<!--                    <div class="upcoming-classes">-->
+<!--                        <div class="up-title">-->
+<!--                            <span>Next</span>-->
+<!--                            <h5>Upcomming Classes</h5>-->
+<!--                        </div>-->
+<!--                        <ul class="classes-time">-->
+<!--                            <li><img src="{% static 'img/stopwatch.png' %}" alt=""> Gym Fitness <span>11:00 - 12:00</span></li>-->
+<!--                            <li><img src="{% static 'img/stopwatch.png' %}" alt=""> Pilates <span>12:00 - 13:00</span></li>-->
+<!--                            <li><img src="{% static 'img/stopwatch.png' %}" alt=""> Spinning <span>13:00 - 14:00</span></li>-->
+<!--                            <li><img src="{% static 'img/stopwatch.png' %}" alt=""> Yoga <span>14:00 - 15:00</span></li>-->
+<!--                            <li><img src="{% static 'img/stopwatch.png' %}" alt=""> Gym Fitness <span>15:00 - 16:00</span></li>-->
+<!--                            <li><img src="{% static 'img/stopwatch.png' %}" alt=""> Pilates <span>16:00 - 17:00</span></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+                </div>
+                    {% for card in cards %}
+                <div class="col-lg-4 col-md-4">
+                    <div class="membership-card set-bg" >
+                        <div class="membership-details">
+                            <div class="up-title">
+                                <span>{{ card.type }}</span>
+                                <h5>{{ card.price }}</h5>
+                            </div>
+                            <div class="discount">
+                                <h1>{{ card.type }} <span>{{ card.duration }}</span></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    {% endfor %}
+<!--                <div class="col-lg-4 col-md-12">-->
+<!--                    <div class="member-sign-up set-bg" data-setbg="{% static 'img/signup-bg.jpg' %}">-->
+<!--                        <div class="up-title">-->
+<!--                            <span>New</span>-->
+<!--                            <h5>Personal Trainer</h5>-->
+<!--                        </div>-->
+<!--                        <p>Pellentesque dictum nisl in nibh dictum volutpat nec a quam. Vivamus suscipit nisl quis nulla-->
+<!--                            pretium.Pellentesque dictum nisl in nibh dictum volutpat nec a quam. Vivamus suscipit nisl-->
+<!--                            quis nulla pretium.</p>-->
+<!--                        <div class="member-signup-btn">-->
+<!--                            <a href="#" class="primary-btn">Sign up Now</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

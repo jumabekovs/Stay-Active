@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import club
+from .views import ClubView
 
 urlpatterns = [
-    path('clubs/', club, name='clubs'),
+    path('clubs/', ClubView.as_view(), name='clubs'),
 
 ]
