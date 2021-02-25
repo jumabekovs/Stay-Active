@@ -24,6 +24,11 @@ class Club(models.Model):
     def __str__(self):
         return f'{self.type}-{self.name}'
 
+    def get_image_url(self):
+        if self.image:
+            return self.image.url
+        return ''  # if no image, return empty string
+
 
 class ClubImage(models.Model):
     images = models.FileField(default='default_club_logo.jpg', upload_to='club_images', blank=True, null=True)

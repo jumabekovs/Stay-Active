@@ -8,14 +8,14 @@ from .models import *
 class ClubView(ListView):
     model = Club
     template_name = 'clubs.html'
-    context_object_name = 'club_types'
+    context_object_name = 'clubs'
     ordering = ['type']
 
 
 class ClubDetailView(DetailView):
     model = Club
     template_name = 'club_detail.html'
-    context_object_name = 'club_types'
+    context_object_name = 'club'
 
 
     def get_context_data(self, **kwargs):
@@ -24,14 +24,10 @@ class ClubDetailView(DetailView):
         return context
 
 
-# def club_category(request, type):
-#     clubs = Club.objects.all().filter(type=type)
-#     return render(request, 'clubs.html', locals())
-
 
 class ClubCategoryDetailView(DetailView):
     model = CategoryClub
-    template_name = 'clubs.html'
+    template_name = 'club_category.html'
     context_object_name = 'category'
 
     def get_context_data(self, **kwargs):

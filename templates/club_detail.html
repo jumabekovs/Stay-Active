@@ -21,16 +21,15 @@
     </section>
 <!--     Breadcrumb Section End-->
 <!-- Blog Section Begin -->
-
         <section class="blog spad-2">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="single-blog-item">
-                            <div class="blog-img set-bg" data-setbg="{{ club.image.url }}">
+                            <div class="blog-img set-bg" data-setbg="{{ club.get_image_url }}">
                                 <div class="blog-time">
                                     <h2><span>{{ club.name }}</span></h2>
-                                    <img src="{{ club.image.url }}" alt="">
+                                    <img src="{{ club.get_image_url }}" alt="">
                                 </div>
                             </div>
                             <div class="blog-text">
@@ -63,5 +62,4 @@
     </section>
 <!--     Blog Section End-->
 <!--     Footer Section Begin-->
-
 {% endblock %}
