@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.db.models import Q
 from django.views.generic import ListView, DetailView
 
 from .models import *
@@ -10,6 +10,7 @@ class ClubView(ListView):
     template_name = 'clubs.html'
     context_object_name = 'clubs'
     ordering = ['type']
+
 
 
 class ClubDetailView(DetailView):
@@ -25,12 +26,3 @@ class ClubDetailView(DetailView):
 
 
 
-class ClubCategoryDetailView(DetailView):
-    model = CategoryClub
-    template_name = 'club_category.html'
-    context_object_name = 'category'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['club_types'] = self.get_object().club_types.all()
-        return context

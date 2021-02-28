@@ -33,10 +33,10 @@ class CategoryPost(models.Model):
     def __str__(self):
         return f'{self.slug}'
 
-    @property
-    def logo_url(self):
-        if self.logo and hasattr(self.logo, 'url'):
+    def get_image_url(self):
+        if self.logo:
             return self.logo.url
+        return ''
 
 
 class CategoryClub(models.Model):
@@ -55,6 +55,11 @@ class CategoryClub(models.Model):
     def __str__(self):
         return f'{self.slug}'
 
+    def get_image_url(self):
+        if self.logo:
+            return self.logo.url
+        return ''
+
 
 class CategoryOffer(models.Model):
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True,
@@ -70,10 +75,10 @@ class CategoryOffer(models.Model):
     def __str__(self):
         return self.slug
 
-    @property
-    def logo_url(self):
-        if self.logo and hasattr(self.logo, 'url'):
+    def get_image_url(self):
+        if self.logo:
             return self.logo.url
+        return ''
 
 
 

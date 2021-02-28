@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from applications.category.models import CategoryClub
 
 GENDER_SEGREGATION = (
-    ('men', _('Only for Men ')),
+    ('men', _('Only for Men')),
     ('women', _('Only for Women')),
     ('both', _('Open')),
 )
@@ -34,7 +34,7 @@ class ClubImage(models.Model):
     images = models.FileField(default='default_club_logo.jpg', upload_to='club_images', blank=True, null=True)
     club = models.ForeignKey(Club, related_name='images', on_delete=models.CASCADE)
 
-    @property
-    def image_url(self):
-        if self.images and hasattr(self.images, 'url'):
+    def get_image_url(self):
+        if self.images:
             return self.images.url
+        return ''

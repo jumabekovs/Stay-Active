@@ -2,12 +2,13 @@
 {% load static %}
 {% block content %}
 
+
     <section class="breadcrumb-area set-bg" data-setbg="{% static 'img/classes/classes-bg.jpg' %}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb-content">
-                        <h2>Classes</h2>
+                        <h2>Clubs</h2>
                         <div class="links">
                             <a href="{% url 'home' %}">Home</a>
                             <a href="{% url 'clubs' %}" class="rt-breadcrumb">Clubs</a>
@@ -21,7 +22,7 @@
     <section class="classes-section">
         <div class="container">
             <div class="row">
-                {% for club in club_types %}
+                {% for club in clubs %}
                 <div class="col-md-4 col-sm-6">
                     <div class="single-classes">
                         <div class="classes-img">
@@ -55,4 +56,5 @@
             </div>
         </div>
     </section>
+
 {% endblock %}

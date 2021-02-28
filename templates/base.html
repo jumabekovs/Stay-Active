@@ -61,8 +61,8 @@
             <div class="search-bar-tablecell">
                 <div class="search-bar-inner">
                     <h2>Search</h2>
-                    <form action="#">
-                        <input type="search" placeholder="Type Keywords">
+                    <form method="get" action="{% url 'home' %}">
+                        <input type="search" name="search" placeholder="Type Keywords">
                         <button type="submit">Search</button>
                     </form>
                 </div>

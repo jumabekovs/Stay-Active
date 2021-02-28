@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from django.views.generic import DetailView
+from applications.category.models import CategoryClub
 
-# Create your views here.
+
+class ClubCategoryDetailView(DetailView):
+    model = CategoryClub
+    template_name = 'club_category.html'
+    context_object_name = 'category'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['club_types'] = self.get_object().club_types.all()
+        return context

@@ -27,4 +27,9 @@ class ExtendPost(models.Model):
     def __str__(self):
         return f'{self.header}'
 
+    def get_image_url(self):
+        if self.images:
+            return self.images.url
+        return ''
+
 
