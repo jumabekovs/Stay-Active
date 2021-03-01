@@ -22,11 +22,19 @@ class ClubView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         search = self.request.GET.get('search')
+        gender = self.request.GET.get('filter')
+        print(filter)
         if search:
             context['clubs'] = Club.objects.filter(Q(name__icontains=search) | Q(slug__icontains=search))
+
+        elif gender == 'men':
+            context['clubs'] = Club.objects.filter(gender_segregation='men')
+        elif gender == 'women':
+            context['clubs'] = Club.objects.filter(gender_segregation='women')
+        elif gender == 'both':
+            context['clubs'] = Club.objects.filter(gender_segregation='both')
         else:
             context['clubs'] = Club.objects.all()
-        print(context)
         return context
 
 
