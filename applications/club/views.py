@@ -10,6 +10,7 @@ class ClubView(ListView):
     template_name = 'clubs.html'
     context_object_name = 'clubs'
     ordering = ['type']
+    paginate_by = 6
 
     def get_template_names(self):
         template_name = super(ClubView, self).get_template_names()

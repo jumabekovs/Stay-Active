@@ -28,7 +28,7 @@
     <section class="classes-section">
         <div class="container">
             <div class="row">
-                {% for club in clubs %}
+                {% for club in page_obj %}
                 <div class="col-md-4 col-sm-6">
                     <div class="single-classes">
                         <div class="classes-img">
@@ -43,139 +43,7 @@
                     </div>
                 </div>
                 {% endfor %}
-<!--                <div class="col-md-4 col-sm-6">-->
-<!--                    <div class="single-classes">-->
-<!--                        <div class="classes-images">-->
-<!--                            <images src="images/classes/classes-2.jpg" alt="">-->
-<!--                        </div>-->
-<!--                        <div class="classes-text">-->
-<!--                            <h5>Body Building</h5>-->
-<!--                            <p>Pellentesque dictum nisl in nibh dictum volutpat nec a quam. Vivamus suscipit nisl quis-->
-<!--                                nulla pretium, vitae ornare leo.</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-4 col-sm-6">-->
-<!--                    <div class="single-classes">-->
-<!--                        <div class="classes-images">-->
-<!--                            <images src="images/classes/classes-3.jpg" alt="">-->
-<!--                        </div>-->
-<!--                        <div class="classes-text">-->
-<!--                            <h5>Fitness</h5>-->
-<!--                            <p>Pellentesque dictum nisl in nibh dictum volutpat nec a quam. Vivamus suscipit nisl quis-->
-<!--                                nulla pretium, vitae ornare leo.</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-4 col-sm-6">-->
-<!--                    <div class="single-classes">-->
-<!--                        <div class="classes-images">-->
-<!--                            <images src="images/classes/classes-4.jpg" alt="">-->
-<!--                        </div>-->
-<!--                        <div class="classes-text">-->
-<!--                            <h5>Yoga</h5>-->
-<!--                            <p>Pellentesque dictum nisl in nibh dictum volutpat nec a quam. Vivamus suscipit nisl quis-->
-<!--                                nulla pretium, vitae ornare leo.</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-4 col-sm-6">-->
-<!--                    <div class="single-classes">-->
-<!--                        <div class="classes-images">-->
-<!--                            <images src="images/classes/classes-5.jpg" alt="">-->
-<!--                        </div>-->
-<!--                        <div class="classes-text">-->
-<!--                            <h5>Trx</h5>-->
-<!--                            <p>Pellentesque dictum nisl in nibh dictum volutpat nec a quam. Vivamus suscipit nisl quis-->
-<!--                                nulla pretium, vitae ornare leo.</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-4 col-sm-6">-->
-<!--                    <div class="single-classes">-->
-<!--                        <div class="classes-images">-->
-<!--                            <images src="images/classes/classes-6.jpg" alt="">-->
-<!--                        </div>-->
-<!--                        <div class="classes-text">-->
-<!--                            <h5>Spinning</h5>-->
-<!--                            <p>Pellentesque dictum nisl in nibh dictum volutpat nec a quam. Vivamus suscipit nisl quis-->
-<!--                                nulla pretium, vitae ornare leo.</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-<!--    &lt;!&ndash; Classes Section End &ndash;&gt;-->
-<!--    &lt;!&ndash; Fitness Plan Begin &ndash;&gt;-->
-<!--    <section class="fitness-section inside-bg">-->
-<!--        <div class="container">-->
-<!--            <div class="row">-->
-<!--                <div class="col-lg-5 col-md-6">-->
-<!--                    <div class="single-fitness-feature">-->
-<!--                        <div class="fitness-number">-->
-<!--                            <span>01</span>-->
-<!--                        </div>-->
-<!--                        <div class="fitness-text">-->
-<!--                            <h4>Get fitted</h4>-->
-<!--                            <p>Arcu a tellus pellentesque ultrices. Ut euismod luctus elit id eleifend. Donec semper-->
-<!--                                massa a imperdiet mattis. </p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="single-fitness-feature">-->
-<!--                        <div class="fitness-number">-->
-<!--                            <span>02</span>-->
-<!--                        </div>-->
-<!--                        <div class="fitness-text">-->
-<!--                            <h4>Try Pilates</h4>-->
-<!--                            <p>Ut euismod luctus elit id eleifend. Donec semper massa a imperdiet mattis. In vel mattis-->
-<!--                                neque, nec ultricies lectus. </p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="single-fitness-feature">-->
-<!--                        <div class="fitness-number">-->
-<!--                            <span>03</span>-->
-<!--                        </div>-->
-<!--                        <div class="fitness-text">-->
-<!--                            <h4>Healthy Diet</h4>-->
-<!--                            <p>Arcu a tellus pellentesque ultrices. Ut euismod luctus elit id eleifend. Donec semper-->
-<!--                                massa a imperdiet mattis. </p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-lg-5 col-md-6 offset-lg-2 text-md-right text-left">-->
-<!--                    <div class="single-fitness-feature">-->
-<!--                        <div class="fitness-number left-number">-->
-<!--                            <span>04</span>-->
-<!--                        </div>-->
-<!--                        <div class="fitness-text left-text">-->
-<!--                            <h4>Meditation</h4>-->
-<!--                            <p>Arcu a tellus pellentesque ultrices. Ut euismod luctus elit id eleifend. Donec semper-->
-<!--                                massa a imperdiet mattis. </p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="single-fitness-feature">-->
-<!--                        <div class="fitness-number left-number">-->
-<!--                            <span>05</span>-->
-<!--                        </div>-->
-<!--                        <div class="fitness-text left-text">-->
-<!--                            <h4>Diet Plan</h4>-->
-<!--                            <p>Ut euismod luctus elit id eleifend. Donec semper massa a imperdiet mattis. In vel mattis-->
-<!--                                neque, nec ultricies lectus. </p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="single-fitness-feature">-->
-<!--                        <div class="fitness-number left-number">-->
-<!--                            <span>06</span>-->
-<!--                        </div>-->
-<!--                        <div class="fitness-text left-text">-->
-<!--                            <h4>Grow Muscles</h4>-->
-<!--                            <p>Arcu a tellus pellentesque ultrices. Ut euismod luctus elit id eleifend. Donec semper-->
-<!--                                massa a imperdiet mattis. </p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
+
         </div>
     </section>
     <!-- Fitness Plan End -->
@@ -197,4 +65,19 @@
     </section>
     <!-- Classes Call To Action End -->
     <!-- Footer Section Begin -->
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    {% if page_obj.has_previous %}
+      <li class="page-item"><a class="page-link" href="{% url 'clubs' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">{{ page_obj.previous_page_number }}</a></li>
+    {% endif %}
+    <li class="page-item">{{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</li>
+
+    {% if page_obj.has_next %}
+      <li class="page-item"><a class="page-link" href="{% url 'clubs' %}?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></li>
+      {% endif %}
+  </ul>
+</nav>
+
+
 {% endblock %}
