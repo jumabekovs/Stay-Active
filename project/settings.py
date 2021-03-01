@@ -60,6 +60,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'applications.club.context_processor.get_club_category',
+                'applications.blog.context_processor.get_post_category',
 
             ],
         },

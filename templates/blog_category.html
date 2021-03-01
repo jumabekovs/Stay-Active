@@ -11,25 +11,28 @@
                         <h2>Blog</h2>
                         <div class="links">
                             <a href="{% url 'home' %}">Home</a>
-                            <a href="{% url 'blog' %}" class="rt-breadcrumb">Blog</a>
+                            <a href="./blog.html" class="rt-breadcrumb">Blog</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </section>
-<!--     Breadcrumb Section End-->
-<!-- Blog Section Begin -->
-
-        <section class="blog spad-2">
+            {% for post_cat in post_categories %}
+<li><a href="{% url 'category-post' post_cat.slug %}">{{ post_cat.title }}</a></li>
+</ul>
+        {% endfor %}
+    <!-- Breadcrumb Section End -->
+    <!-- Blog Section Begin -->
+        {% for post in post_category %}
+<!--        <section class="blog spad-2">-->
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="single-blog-item">
                             <div class="blog-img set-bg" data-setbg="{{ post.image.url }}">
                                 <div class="blog-time">
-                                    <h2><span>{{ post.created_date }}</span></h2>
+                                    <h2><span>{{ post.created_date | date }}</span></h2>
                                 </div>
                             </div>
                             <div class="blog-text">
@@ -39,23 +42,18 @@
                                 </ul>
                                 <p>{{ post.content }}</p>
                                 <div class="posted-by">
-                                    <div class="posted-by-img">
-        <!--                                    <images src="{% static 'images/blog/posted.png' %}" alt="">-->
-                                    </div>
+
                                     <div class="posted-by-name">
-                                        <span>{{ post.sub_title }}</span>
+                                        <span>{{ post.content }}</span>
                                     </div>
                                 </div>
-                                {% for i in extends %}
-                                {{ i.header }}
-                                {{ i.text }}
-                                <img src="{{ i.images.url | default_if_none:'#' }}" alt="">
+                                <a href="{% url 'blog-detail' post.sub_title %}" class="primary-btn">Read More</a>
                             </div>
                         </div>
                     </div>
-                             {% endfor %}
+                        {% endfor %}
                 <div class="col-lg-12"></div>
-                </div>
+<!--                </div>-->
 
 
                 {% for post in recently %}
@@ -86,7 +84,6 @@
                         </div>
                     </div>
                     {% endfor %}
-
 <!---->
         </div>
     </section>

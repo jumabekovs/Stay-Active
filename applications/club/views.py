@@ -11,6 +11,25 @@ class ClubView(ListView):
     context_object_name = 'clubs'
     ordering = ['type']
 
+    def get_template_names(self):
+        template_name = super(ClubView, self).get_template_names()
+        search = self.request.GET.get('search')
+        if search:
+            template_name = 'search.html'
+        return template_name
+
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        search = self.request.GET.get('search')
+        if search:
+            context['clubs'] = Club.objects.filter(Q(name__icontains=search) | Q(slug__icontains=search))
+        else:
+            context['clubs'] = Club.objects.all()
+        print(context)
+        return context
+
+
 
 
 class ClubDetailView(DetailView):
