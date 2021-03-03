@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'applications.card',
     'applications.category',
     'applications.club',
-    'applications.customer',
+    'applications.user',
 
 ]
 
@@ -68,7 +68,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'project.wsgi.application'
-AUTH_USER_MODEL = 'customer.User'
+AUTH_USER_MODEL = 'user.User'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
