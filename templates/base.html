@@ -39,13 +39,20 @@
                             </a>
                         </div>
                         <nav class="mobile-menu">
-                            <ul>
+
                                 <li><a href="{% url 'home' %}">Home</a></li>
                                 <li><a href="{% url 'clubs' %}">Clubs</a></li>
                                 <li><a href="{% url 'cards' %}">Offers</a></li>
-                                <li><a href="./elements.html">Instructors</a></li>
                                 <li><a href="{% url 'blog' %}">News</a></li>
-                                <li><a href="./contact.html">Contact</a></li>
+<!--                                <li><a href="{% url 'blog' %}">News</a></li>-->
+<!--                                <li><a href="./contact.html">Contact</a></li>-->
+                                    {% if user.is_authenticated %}
+                                <li><a href="{% url 'logout' %}">Sign Out</a></li>
+                                    {% else %}
+                                <li><a href="{% url 'registration' %}">Sign Up</a></li>
+                                <li><a href="{% url 'sign-in' %}">Sign In</a></li>
+                                    {% endif %}
+
                                 <li class="search-btn search-trigger"><i class="fa fa-search"></i></li>
                             </ul>
                         </nav>
@@ -69,15 +76,8 @@
             </div>
         </div>
     </section>
-    <!-- Search Bar End -->
-    <!-- Top Social Begin -->
-    <div class="top-social">
-        <div class="top-social-links">
-            <ul>
-                <a href="#"><button type="button" class="btn btn-success">Sign Up</button></a>
-            </ul>
-        </div>
-    </div>
+
+
     <!-- Top Social End -->
     <!-- Hero Slider Section Begin -->
 <!--    <section class="hero-slider">-->
