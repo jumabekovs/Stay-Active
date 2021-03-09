@@ -1,9 +1,9 @@
 from django.views.generic import ListView
 
-from .models import Offer
+from .models import Card
 
 
 class CardsView(ListView):
-    model = Offer
+    model = Card
     template_name = 'cards.html'
     context_object_name = 'cards'

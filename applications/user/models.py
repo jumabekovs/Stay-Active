@@ -14,14 +14,14 @@ GENDER_CHOICES = (
 class User(AbstractBaseUser):
     username = models.CharField(max_length=100, blank=True)
     email = models.EmailField(max_length=100, unique=True)
-    first_name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255, blank=True)
     phone = models.CharField(max_length=14, blank=True, null=True, help_text=_('Contact phone number'))
     age = models.PositiveIntegerField(default=18)
     gender = models.CharField(max_length=2, choices=GENDER_CHOICES, default='NS')
     photo = models.ImageField(default=" default_profile.png", null=True, blank=True, upload_to='profile_images')
     objects = CustomUserManager()
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     USERNAME_FIELD = 'email'

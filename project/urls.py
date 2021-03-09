@@ -24,7 +24,7 @@ urlpatterns = [
     path('clubs/', include('applications.club.urls')),
     path('offers/', include('applications.card.urls')),
     path('category/', include('applications.category.urls')),
-    path('account/', include('applications.user.urls')),
+    path('accounts/', include('applications.user.urls')),
     path('accounts/', include('allauth.urls')),
 
 ]

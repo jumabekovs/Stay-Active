@@ -41,22 +41,4 @@ class SignInView(LoginView):
 
 
 
-@receiver(user_signed_up)
-def user_signed_up_(request, user, **kwargs):
-
-    user.is_active = False
-    user.is_staff = True
-    Group.objects.get(name='SurveyManager').user_set.add(user)
-
-    user.save()
-
-
-@receiver(email_confirmed)
-def email_confirmed_(request, email_address, **kwargs):
-
-    new_email_address = EmailAddress.objects.get(email=email_address)
-    user = User.objects.get(new_email_address.user)
-    user.is_active = True
-
-    user.save()
 

@@ -1,5 +1,6 @@
 from django.contrib import admin
 
-from .models import Offer
+from .models import Card, Order
 
-admin.site.register(Offer)
+admin.site.register(Card)
+admin.site.register(Order)
