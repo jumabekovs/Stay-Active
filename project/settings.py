@@ -77,7 +77,7 @@ AUTH_USER_MODEL = 'user.User'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'my_project_db',
+        'NAME': 'stay_active1',
         'USER': 'postgres',
         "PASSWORD": config('DB_PASSWORD'),
         'HOST': 'localhost,127.0.0.1',
