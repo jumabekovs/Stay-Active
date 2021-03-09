@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 {% load static %}
+{% load socialaccount %}
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="TopGym Template">
@@ -78,11 +79,12 @@
         <div class="top-social-links">
             <ul>
                 {% if user.is_authenticated %}
+                <p>Welcome, {{ user.email }} !</p>
                 <li><a href="{% url 'logout' %}">signout</a>
                 {% else %}
                 <li><a href="{% url 'registration' %}">signup</a></li>
                 <li><a href="{% url 'sign-in' %}">signin</a></li>
-                <li><a href="{% url 'social:begin' 'facebook' %}"><i class="fa fa-facebook"></i></a></li>
+                <a href="{% provider_login_url 'google' %}">Google</a>
                 {% endif %}
             </ul>
         </div>

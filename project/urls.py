@@ -24,7 +24,8 @@ urlpatterns = [
     path('clubs/', include('applications.club.urls')),
     path('offers/', include('applications.card.urls')),
     path('category/', include('applications.category.urls')),
-    path('accounts/', include('applications.user.urls')),
+    path('account/', include('applications.user.urls')),
+    path('accounts/', include('allauth.urls')),
 
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
