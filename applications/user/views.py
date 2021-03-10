@@ -42,3 +42,7 @@ class SignInView(LoginView):
 #
 # class ProfileView(DetailView)
 #
+def ProfilePage(request):
+
+
+    return render(request, 'accounts/user.html', locals())

@@ -25,7 +25,7 @@ class User(AbstractBaseUser):
     gender = models.CharField(max_length=2, choices=GENDER_CHOICES, default='NS')
     photo = models.ImageField(default=" default_profile.png", null=True, blank=True, upload_to='profile_images')
     objects = CustomUserManager()
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     USERNAME_FIELD = 'email'
@@ -48,3 +48,5 @@ class User(AbstractBaseUser):
             self.create_activation_code()
         self.activation_code = code
         self.save(update_fields=['activation_code'])
+
+
