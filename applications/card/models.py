@@ -1,3 +1,4 @@
+import uuid
 from datetime import timedelta
 
 from django.db import models
@@ -18,29 +19,42 @@ class Card(models.Model):
     duration = models.CharField(max_length=55, choices=OFFER_DURATION)
     price = models.CharField(max_length=15)
     description = models.TextField()
-    activation_date = models.DateTimeField(blank=True, null=True)
-    expire_date = models.DateTimeField(blank=True, null=True)
+
 
     def __str__(self):
         return f'{self.type}-{self.duration}-{self.price}'
 
+
+
+class Offer(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    client = models.ForeignKey(User, null=True, on_delete=models.CASCADE, related_name='orders')
+    card = models.ForeignKey(Card, null=True, on_delete=models.CASCADE, related_name='card_orders')
+    date_created = models.DateTimeField(auto_now_add=True, null=True)
+    activation_date = models.DateTimeField(blank=True, null=True)
+    expire_date = models.DateTimeField(blank=True, null=True)
+    code = models.CharField(max_length=15, blank=True)
+    status = models.BooleanField(default=False)
+
+    def get_activation_code(self):
+        from django.utils.crypto import get_random_string
+        code = get_random_string(15)
+        if Offer.objects.filter(code=code).exists():
+            self.get_activation_code()
+        self.code = code
+        self.save(update_fields=['code'])
+
     def save(self):
-        d = timedelta(days=int(self.duration))
+        d = timedelta(days=int(self.card.duration))
 
         if self.activation_date is not None:
             self.expire_date = self.activation_date + d
-            super(Card, self).save()
+            self.status = True
+            super(Offer, self).save()
         else:
             self.expire_date = None
-            super(Card, self).save()
+            super(Offer, self).save()
 
-
-
-class Order(models.Model):
-    client = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
-    card = models.ForeignKey(Card, null=True, on_delete=models.CASCADE)
-    date_created = models.DateTimeField(auto_now_add=True, null=True)
-    note = models.CharField(max_length=1000, null=True)
 
     def __str__(self):
         return self.client.email

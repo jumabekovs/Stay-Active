@@ -1,5 +1,8 @@
+from datetime import date
+
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.db import models
+
 from django.utils.translation import ugettext_lazy as _
 from applications.user.managers import CustomUserManager
 
@@ -16,6 +19,7 @@ class User(AbstractBaseUser):
     email = models.EmailField(max_length=100, unique=True)
     name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255, blank=True)
+    birthday = models.DateField(default=date.today, blank=True)
     phone = models.CharField(max_length=14, blank=True, null=True, help_text=_('Contact phone number'))
     age = models.PositiveIntegerField(default=18)
     gender = models.CharField(max_length=2, choices=GENDER_CHOICES, default='NS')

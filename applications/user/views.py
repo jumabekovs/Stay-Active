@@ -5,7 +5,7 @@ from django.contrib.auth.views import LoginView
 from django.dispatch import receiver
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 from django.views.generic.base import View
 
 from applications.user.forms import RegistrationForm
@@ -39,6 +39,6 @@ class SignInView(LoginView):
     success_url = reverse_lazy('home')
 
 
-
-
-
+#
+# class ProfileView(DetailView)
+#
