@@ -1,0 +1,9 @@
+{% extends 'applications/auth_base.html' %}
+{% block title %}Welcome to our site{% endblock title %}
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Войти</button>
+  </form>
+{% endblock %}

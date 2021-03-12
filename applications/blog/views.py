@@ -9,7 +9,7 @@ from applications.club.models import Club
 
 class HomepageView(ListView):
     model = Club
-    template_name = 'index.html'
+    template_name = 'applications/index.html'
     context_object_name = 'clubs'
 
 
@@ -17,7 +17,7 @@ class HomepageView(ListView):
 
 class BlogView(ListView):
     model = Post
-    template_name = 'blog.html'
+    template_name = 'applications/blog.html'
     context_object_name = 'posts'
     paginate_by = 5
 
@@ -31,6 +31,6 @@ def blog_detail(request, sub_title):
     post = Post.objects.get(sub_title=sub_title)
     extends = post.comment.all()
     recently = Post.objects.all().order_by('-created_date')[:3]
-    return render(request, 'blog_detail.html', locals())
+    return render(request, 'applications/blog_detail.html', locals())
 
 

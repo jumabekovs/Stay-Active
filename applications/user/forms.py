@@ -28,8 +28,15 @@ class RegistrationForm(forms.ModelForm):
             raise forms.ValidationError('Passwords did not match')
         return data
 
-
     def save(self, commit=True):
-        user = User.objects.create(**self.cleaned_data)
-        send_activation_code(user)
+        # Save the provided password in hashed format
+        user = super().save(commit=False)
+        print(user)
+        user.is_active = False
+        user.set_password(self.cleaned_data["password"])
+        if commit:
+            user.save()
+            send_activation_code(user)
         return user
+
+

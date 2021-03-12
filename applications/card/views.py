@@ -9,7 +9,7 @@ from ..user.models import User
 
 class CardsView(ListView):
     model = Card
-    template_name = 'cards.html'
+    template_name = 'applications/cards.html'
     context_object_name = 'cards'
 
 
@@ -29,7 +29,7 @@ def createOrder(request, pk):
             return redirect('/')
 
     context = {'formset': formset}  #changed from form to formset
-    return render(request, 'account/order_form.html', context)
+    return render(request, 'accounts/order_form.html', context)
 
 
 
@@ -43,7 +43,7 @@ def updateOrder(request, pk):
             form.save()
             return redirect('/')
     context = {'form': form}
-    return render(request, 'account/order_form.html', context)
+    return render(request, 'accounts/order_form.html', context)
 
 
 
@@ -54,4 +54,4 @@ def deleteOrder(request, pk):
         return redirect('/')
 
     context = {'item': order}
-    return render(request, 'account/delete.html', context)
+    return render(request, 'accounts/delete.html', context)

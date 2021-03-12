@@ -4,7 +4,7 @@ from applications.category.models import CategoryClub, CategoryPost
 
 class ClubCategoryDetailView(DetailView):
     model = CategoryClub
-    template_name = 'club_category.html'
+    template_name = 'applications/club_category.html'
     context_object_name = 'category'
 
     def get_context_data(self, **kwargs):
@@ -16,7 +16,7 @@ class ClubCategoryDetailView(DetailView):
 
 class PostCategoryDetailView(DetailView):
     model = CategoryPost
-    template_name = 'blog_category.html'
+    template_name = 'applications/blog_category.html'
     context_object_name = 'posts'
 
     def get_context_data(self, **kwargs):

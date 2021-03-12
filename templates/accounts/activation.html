@@ -1,0 +1,8 @@
+{% extends 'applications/auth_base.html' %}
+
+{% block title %}Account Activation{% endblock title %}
+
+{% block content %}
+  <h1>Your account has been activated successfully</h1>
+  <p>To log in to your account, please follow this <a href="{% url 'sign-in' %}">link</a></p>
+{% endblock  %}

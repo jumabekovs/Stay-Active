@@ -7,7 +7,7 @@ from .models import *
 
 class ClubView(ListView):
     model = Club
-    template_name = 'clubs.html'
+    template_name = 'applications/clubs.html'
     context_object_name = 'clubs'
     ordering = ['type']
     paginate_by = 6
@@ -16,7 +16,7 @@ class ClubView(ListView):
         template_name = super(ClubView, self).get_template_names()
         search = self.request.GET.get('search')
         if search:
-            template_name = 'search.html'
+            template_name = 'applications/search.html'
         return template_name
 
 
@@ -43,7 +43,7 @@ class ClubView(ListView):
 
 class ClubDetailView(DetailView):
     model = Club
-    template_name = 'club_detail.html'
+    template_name = 'applications/club_detail.html'
     context_object_name = 'club'
 
 
