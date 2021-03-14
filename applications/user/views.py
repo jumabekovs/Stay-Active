@@ -1,3 +1,5 @@
+import os
+
 from allauth.socialaccount.models import SocialAccount
 from django.contrib.auth.views import LoginView
 from django.dispatch import receiver
@@ -73,6 +75,13 @@ class EditProfileView(View):
             update = form.save(commit=False)
             update.user = user
             update.save()
+            if request.FILES.get('photo', None) is not None:
+                try:
+                    os.remove(request.user.get_image_url)
+                except Exception as e:
+                    print('Exception in removing old profile image: ', e)
+                request.user.photo = request.FILES['photo']
+                request.user.save()
             return redirect('profile')
         else:
             return ProfileForm(instance=request.user)
