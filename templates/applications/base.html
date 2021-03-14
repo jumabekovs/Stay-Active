@@ -80,13 +80,14 @@
         <div class="top-social-links">
             <ul>
                 {% if user.is_authenticated %}
-                <p>Welcome, {{ user.email }} !</p>
+                <p>Welcome, {{ user.email }} !</p><br>
+                <a href="{% url 'profile' %}">Profile</a>
                 <li><a href="{% url 'logout' %}">signout</a>
                 {% else %}
                 <li><a href="{% url 'registration' %}">signup</a></li>
                 <li><a href="{% url 'sign-in' %}">signin</a></li>
                 <a href="{% provider_login_url 'google' %}">Google</a>
-                <a href="{% provider_login_url 'facebook' method='oauth2' %}">Facebook</a>
+                <a href="{% provider_login_url 'facebook' method='oauth2' %}">Facebook</a><br>
                 {% endif %}
             </ul>
         </div>

@@ -194,3 +194,5 @@ CELERY_TIMEZONE = 'Asia/Bishkek'
 CELERY_TASK_TRACK_STARTED = True
 CELERY_BROKER_URL = 'redis://localhost:6380'
 
+CRISPY_TEMPLATE_PACK = 'uni_form'
+

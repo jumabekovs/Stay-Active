@@ -28,21 +28,12 @@ class Card(models.Model):
 
 class Offer(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    client = models.ForeignKey(User, null=True, on_delete=models.CASCADE, related_name='orders')
+    client = models.ForeignKey(User, null=True, on_delete=models.CASCADE, related_name='orders', blank=True)
     card = models.ForeignKey(Card, null=True, on_delete=models.CASCADE, related_name='card_orders')
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     activation_date = models.DateTimeField(blank=True, null=True)
     expire_date = models.DateTimeField(blank=True, null=True)
-    code = models.CharField(max_length=15, blank=True)
     status = models.BooleanField(default=False)
-
-    def get_activation_code(self):
-        from django.utils.crypto import get_random_string
-        code = get_random_string(15)
-        if Offer.objects.filter(code=code).exists():
-            self.get_activation_code()
-        self.code = code
-        self.save(update_fields=['code'])
 
     def save(self):
         d = timedelta(days=int(self.card.duration))
@@ -55,6 +46,9 @@ class Offer(models.Model):
             self.expire_date = None
             super(Offer, self).save()
 
-
     def __str__(self):
         return self.client.email
+
+
+
+

@@ -55,3 +55,8 @@ class User(AbstractBaseUser):
             self.create_activation_code()
         self.activation_code = code
         self.save(update_fields=['activation_code'])
+
+    def get_image_url(self):
+        if self.photo:
+            return self.photo.url
+        return ''
