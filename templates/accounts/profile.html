@@ -34,6 +34,8 @@
 				  		<p>{{ user.gender }}</p>
 				  		<p class="text-muted mb-0" style="font-size: 12px">phone:</p>
 				  		<p>{{ user.phone }} </p>
+                        <p class="text-muted mb-0" style="font-size: 12px">age:</p>
+				  		<p>{{ user.calculate_age }} </p>
                         <p><img src="{{ user.get_image_url }}" alt=""></p>
 						<a href="{% url 'edit_profile' request.user.pk %}">Edit</a>
 			        </div>

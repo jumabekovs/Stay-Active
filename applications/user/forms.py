@@ -27,7 +27,7 @@ class RegistrationForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('email', 'password', 'password_confirmation', 'age', 'gender', 'photo')
+        fields = ('email', 'password', 'password_confirmation', 'birthday', 'gender', 'photo')
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
@@ -57,20 +57,17 @@ class RegistrationForm(forms.ModelForm):
 
 
 class UpdateProfileForm(forms.ModelForm):
-    captcha = ReCaptchaField()
-
+    username = forms.CharField(required=True)
+    email = forms.EmailField(required=True)
+    name = forms.CharField(required=False)
+    last_name = forms.CharField(required=False)
+    birthday = forms.DateField(required=False)
+    phone = forms.CharField(required=False)
 
     class Meta:
         model = User
         fields = ('username', 'email', 'name', 'last_name', 'birthday', 'phone', 'gender', 'photo',)
-        widgets = {
-            "username": forms.TextInput(attrs={'class': 'form-control border'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control border'}),
-            'name': forms.TextInput(attrs={'class': 'form-control border'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control border'}),
-            'birthday': forms.DateTimeInput(attrs={'class': 'form-control border'}),
-            'phone': forms.TextInput(attrs={'class': 'form-control border'}),
-        }
+
 
     def clean_email(self):
         username = self.cleaned_data.get('username')

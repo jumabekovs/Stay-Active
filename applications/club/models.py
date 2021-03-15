@@ -13,12 +13,13 @@ GENDER_SEGREGATION = (
 class Club(models.Model):
     slug = models.SlugField(max_length=100)
     name = models.CharField(max_length=255)
-    type = models.ForeignKey(CategoryClub, related_name='club_types', on_delete=models.DO_NOTHING)
+    type = models.ManyToManyField(CategoryClub, related_name='club_types', verbose_name='club_types')
     gender_segregation = models.CharField(max_length=25, choices=GENDER_SEGREGATION)
     email = models.EmailField(verbose_name='email', max_length=255, unique=True)
     phone = models.CharField(max_length=14, blank=True, help_text=_('Contact phone number'))
     area = models.IntegerField()
     address = models.CharField(max_length=400, unique=True, blank=False)
+    description = models.TextField(blank=True, null=True)
     image = models.ImageField(default='classes-1.jpg', upload_to='club_images', blank=True, null=True)
 
     def __str__(self):

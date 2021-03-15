@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from applications.blog.models import Post, ExtendPost
+from applications.blog.models import Post, ExtendPost, AuthorPost
 
 
 class ExtendPostInline(admin.TabularInline):
@@ -14,3 +14,4 @@ class PostAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Post, PostAdmin)
+admin.site.register(AuthorPost)

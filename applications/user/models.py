@@ -1,13 +1,8 @@
 from datetime import date
 
-from allauth.app_settings import USER_MODEL
-from allauth.socialaccount import providers
-from allauth.socialaccount.fields import JSONField
-from django.conf import settings
-from django.contrib.auth import authenticate
+
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.db import models
-from django.utils.encoding import force_str
 
 from django.utils.translation import ugettext_lazy as _
 
@@ -28,9 +23,8 @@ class User(AbstractBaseUser):
     last_name = models.CharField(max_length=255, blank=True)
     birthday = models.DateField(default=date.today, blank=True)
     phone = models.CharField(max_length=14, blank=True, null=True, help_text=_('Contact phone number'))
-    age = models.PositiveIntegerField(default=18)
     gender = models.CharField(max_length=2, choices=GENDER_CHOICES, default='NS')
-    photo = models.ImageField(default=" default_profile.png", null=True, blank=True, upload_to='profile_images')
+    photo = models.ImageField(default="default_profile.png", upload_to='profile_images')
     objects = CustomUserManager()
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
@@ -60,3 +54,9 @@ class User(AbstractBaseUser):
         if self.photo:
             return self.photo.url
         return ''
+
+
+    def calculate_age(self):
+        today = date.today()
+        return today.year - self.birthday.year - ((today.month, today.day) < (self.birthday.month, self.birthday.day))
+
