@@ -18,7 +18,12 @@ class RegistrationView(CreateView):
     model = User
     form_class = RegistrationForm
     template_name = 'accounts/registration.html'
-    success_url = reverse_lazy('successfully-registered')
+
+    def form_valid(self, form):
+        if self.request.recaptcha_is_valid:
+            form.save()
+            return render(self.request, 'accounts/successfully_registered.html', self.get_context_data())
+        return render(self.request, 'accounts/registration.html', self.get_context_data())
 
 
 class SuccessfulRegistrationView(View):
@@ -42,21 +47,8 @@ class SignInView(LoginView):
 
 
 
-
-# class ProfileView(DetailView):
-#     model = User
-#     template_name = 'accounts/profile.html'
-#
-#     def get_object(self):
-#         return get_object_or_404(User, email=self.kwargs.get('email'))
-#
-#     def get_context_data(self, **kwargs):
-#         context = super(ProfileView, self).get_context_data(**kwargs)
-#         print(context)
-
-
-
 def profile_view(request):
+    user = request.user
     form = ProfileForm(instance=request.user)
     return render(request, 'accounts/profile.html', locals())
 
@@ -85,6 +77,7 @@ class EditProfileView(View):
             return redirect('profile')
         else:
             return ProfileForm(instance=request.user)
+
 
 
 

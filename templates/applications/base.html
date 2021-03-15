@@ -88,16 +88,16 @@
                 <li><a href="{% url 'sign-in' %}">signin</a></li>
                 <a href="{% provider_login_url 'google' %}">Google</a>
                 <a href="{% provider_login_url 'facebook' method='oauth2' %}">Facebook</a><br>
+                {{ captcha }}
                 {% endif %}
             </ul>
         </div>
     </div>
 
-
 {% block content %}
 
 {% endblock %}
-
+{{ captcha }}
 <footer class="footer-section set-bg" data-setbg="{% static 'img/footer-bg.jpg' %}">
         <div class="container">
             <div class="row">

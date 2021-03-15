@@ -1,3 +1,4 @@
+from captcha.fields import ReCaptchaField
 from django import forms
 
 from django.contrib.auth import get_user_model
@@ -56,16 +57,20 @@ class RegistrationForm(forms.ModelForm):
 
 
 class UpdateProfileForm(forms.ModelForm):
-    username = forms.CharField(required=True)
-    email = forms.EmailField(required=True)
-    name = forms.CharField(required=False)
-    last_name = forms.CharField(required=False)
-    birthday = forms.DateField(required=False)
-    phone = forms.CharField(required=False)
+    captcha = ReCaptchaField()
+
 
     class Meta:
         model = User
         fields = ('username', 'email', 'name', 'last_name', 'birthday', 'phone', 'gender', 'photo',)
+        widgets = {
+            "username": forms.TextInput(attrs={'class': 'form-control border'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control border'}),
+            'name': forms.TextInput(attrs={'class': 'form-control border'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control border'}),
+            'birthday': forms.DateTimeInput(attrs={'class': 'form-control border'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control border'}),
+        }
 
     def clean_email(self):
         username = self.cleaned_data.get('username')

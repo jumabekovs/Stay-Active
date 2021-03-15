@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.facebook',
+    'captcha'
 ]
 
 SITE_ID = 1
@@ -196,3 +197,8 @@ CELERY_BROKER_URL = 'redis://localhost:6380'
 
 CRISPY_TEMPLATE_PACK = 'uni_form'
 
+RECAPTCHA_PUBLIC_KEY = '6LcK7X8aAAAAAIzIaA-v2_lMYnjqQcz0VylrY3Rb'
+RECAPTCHA_PRIVATE_KEY = '6LcK7X8aAAAAAC7V2SvWYO-8GMVVUbFd91NK8j_X'
+RECAPTCHA_REQUIRED_SCORE = 0.85
+RECAPTCHA_DEFAULT_ACTION = 'generic'
+RECAPTCHA_REQUIRED_TRESHOLD = 0.5
