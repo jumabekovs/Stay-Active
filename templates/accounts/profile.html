@@ -1,5 +1,5 @@
 {% extends 'applications/base.html' %}
-
+{% load static i18n %}
 
 
 
@@ -19,31 +19,30 @@
 	    <div class="row">
 	    	<div class="col-sm-12 col-md-12 col-lg-3 pb-4">
 		    	<div class="card p-4">
-			    	<h4 class="card-title font-weight-bold text-center">Hello, {{ user.email }}<br></h4>
+			    	<h4 class="card-title font-weight-bold text-center">{% trans 'Hello' %}, {{ user.email }}<br></h4>
 			      	<hr>
 			    	<div class="card-text">
-			    		<p class="text-muted mb-0" style="font-size: 12px">Username:</p>
+			    		<p class="text-muted mb-0" style="font-size: 12px">{% trans 'Username': %}</p>
 			    		<p>{{ user.username }}</p>
-			    		<p class="text-muted mb-0" style="font-size: 12px">Name:</p>
+			    		<p class="text-muted mb-0" style="font-size: 12px">{% trans 'Name':%}</p>
 				  		<p>{{ user.name }} {{ user.last_name }}</p>
-				  		<p class="text-muted mb-0" style="font-size: 12px">Email:</p>
+				  		<p class="text-muted mb-0" style="font-size: 12px">{% trans 'Email':%}</p>
 				  		<p>{{ user.email }} </p>
-						<p class="text-muted mb-0" style="font-size: 12px">birthday:</p>
+						<p class="text-muted mb-0" style="font-size: 12px">{% trans 'Birthday':%}</p>
 			    		<p>{{ user.birthday }}</p>
-			    		<p class="text-muted mb-0" style="font-size: 12px">gender:</p>
+			    		<p class="text-muted mb-0" style="font-size: 12px">{% trans 'Gender':%}</p>
 				  		<p>{{ user.gender }}</p>
-				  		<p class="text-muted mb-0" style="font-size: 12px">phone:</p>
+				  		<p class="text-muted mb-0" style="font-size: 12px">{% trans 'Phone':%}</p>
 				  		<p>{{ user.phone }} </p>
-                        <p class="text-muted mb-0" style="font-size: 12px">age:</p>
+                        <p class="text-muted mb-0" style="font-size: 12px">{% trans 'Age':%}</p>
 				  		<p>{{ user.calculate_age }} </p>
                         <p><img src="{{ user.get_image_url }}" alt=""></p>
-						<a href="{% url 'edit_profile' request.user.pk %}">Edit</a>
+						<a href="{% url 'edit_profile' request.user.pk %}">{% trans 'Edit' %}</a>
 			        </div>
 		    	</div>
 		  	</div>
 		    <div class="col-sm-12 col-md-12 col-lg-9 pb-4">
 
-		    	...
 		    </div>
 		</div>
 	</div>
@@ -58,7 +57,7 @@
 		    <div class="col-sm-12 col-md-12 col-lg-9 pb-4">
 		    	<div class="row">
 		    		<div class="col-6 my-auto">
-		    			<h2 class="font-weight-bold pt-4">Card</h2>
+		    			<h2 class="font-weight-bold pt-4">{% trans Card</h2>
 		    		</div>
 		    	</div>
 		      	<br>

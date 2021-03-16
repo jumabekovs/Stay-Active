@@ -1,24 +1,26 @@
 {% extends 'applications/base.html' %}
 {% load static %}
 {%  block content %}
+{% load static i18n %}
+
 
 
     <section class="hero-slider">
         <div class="slide-items owl-carousel">
             <div class="single-slide set-bg active" data-setbg="{% static 'img/bg.jpg' %}">
                 <a href="https://www.youtube.com/watch?v=VJ6q5g4bx9U" class="play-btn pop-up"><i class="fa fa-play"></i></a>
-                <h1>Be Fit.Top Gym</h1>
-                <a href="#" class="primary-btn">Read More</a>
+                <h1>{% trans 'Be Fit.Top Gym' %}</h1>
+                <a href="#" class="primary-btn">{% trans ReadMore %}</a>
             </div>
             <div class="single-slide set-bg" data-setbg="{% static 'img/bg-2.jpg' %}">
                 <a href="https://www.youtube.com/watch?v=VJ6q5g4bx9U" class="play-btn pop-up"><i class="fa fa-play"></i></a>
-                <h1>Be Fit.Best Pools</h1>
-                <a href="#" class="primary-btn">Read More</a>
+                <h1>{% trans 'Be Fit.Best Pools' %}</h1>
+                <a href="#" class="primary-btn">{% trans 'Read More' %}</a>
             </div>
             <div class="single-slide set-bg" data-setbg="{% static 'img/bg-3.jpg' %}">
                 <a href="https://www.youtube.com/watch?v=VJ6q5g4bx9U" class="play-btn pop-up"><i class="fa fa-play"></i></a>
-                <h1>Be Fit.Awesome Yoga</h1>
-                <a href="#" class="primary-btn">Read More</a>
+                <h1>{% trans 'Be Fit.Awesome Yoga' %}</h1>
+                <a href="#" class="primary-btn">{% trans 'Read More' %}</a>
             </div>
         </div>
     </section>

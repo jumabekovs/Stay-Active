@@ -1,6 +1,5 @@
-from captcha.fields import ReCaptchaField
 from django import forms
-
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 from .utils import send_activation_code
 
@@ -10,13 +9,13 @@ User = get_user_model()
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('username', 'email', 'name', 'last_name', 'birthday', 'phone', 'gender', 'photo', )
+        fields = (_('username'), _('email'), _('name'), _('last_name'), _('birthday'), _('phone'), _('gender'), _('photo'), )
 
 
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('username', 'email', 'name', 'last_name', 'birthday', 'phone', 'gender', 'photo', )
+        fields = (_('username'), _('email'), _('name'), _('last_name'), _('birthday'), _('phone'), _('gender'), _('photo'), )
 
 
 
@@ -27,12 +26,12 @@ class RegistrationForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('email', 'password', 'password_confirmation', 'birthday', 'gender', 'photo')
+        fields = (_('email'), _('password'), _('password_confirmation'), _('birthday'), _('gender'), _('photo'))
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
         if User.objects.filter(email=email).exists():
-            raise forms.ValidationError('User with this email is already exists!')
+            raise forms.ValidationError(_('User with this email is already exists!'))
         return email
 
     def clean(self):
@@ -40,7 +39,7 @@ class RegistrationForm(forms.ModelForm):
         password = data.get('password')
         password_confirmation = data.pop('password_confirmation')
         if password != password_confirmation:
-            raise forms.ValidationError('Passwords did not match')
+            raise forms.ValidationError(_('Passwords did not match'))
         return data
 
     def save(self, commit=True):
@@ -66,7 +65,7 @@ class UpdateProfileForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'name', 'last_name', 'birthday', 'phone', 'gender', 'photo',)
+        fields = (_('username'), _('email'), _('name'), _('last_name'), _('birthday'), _('phone'), _('gender'), _('photo'), )
 
 
     def clean_email(self):
@@ -74,7 +73,7 @@ class UpdateProfileForm(forms.ModelForm):
         email = self.cleaned_data.get('email')
 
         if email and User.objects.filter(email=email).exclude(username=username).count():
-            raise forms.ValidationError('This email address is already in use. Please supply a different email address.')
+            raise forms.ValidationError(_('This email address is already in use. Please supply a different email address.'))
         return email
 
     def save(self, commit=True):

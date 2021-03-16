@@ -1,9 +1,10 @@
 {% extends 'applications/auth_base.html' %}
-{% block title %}Welcome to our site{% endblock title %}
+{% load static i18n %}
+{% block title %}{% trans 'Welcome to our web-site' %}{% endblock title %}
 {% block content %}
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Войти</button>
+    <button type="submit">{% trans 'Log in' %}</button>
   </form>
 {% endblock %}

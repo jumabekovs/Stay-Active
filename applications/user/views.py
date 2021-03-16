@@ -1,17 +1,14 @@
 import os
-
-from allauth.socialaccount.models import SocialAccount
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.views import LoginView
-from django.dispatch import receiver
-from django.http import HttpResponseRedirect, HttpResponse
-from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse_lazy, reverse
-from django.views.generic import CreateView, DetailView, FormView, UpdateView
-from django.views.generic.base import View, TemplateView
 
-from applications.user.forms import RegistrationForm, UserForm, ProfileForm, UpdateProfileForm
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
+from django.views.generic.base import View
+
+from applications.user.forms import RegistrationForm, ProfileForm
 from applications.user.models import User
-from applications.user.utils import send_activation_code
 
 
 class RegistrationView(CreateView):
@@ -71,7 +68,7 @@ class EditProfileView(View):
                 try:
                     os.remove(request.user.get_image_url)
                 except Exception as e:
-                    print('Exception in removing old profile image: ', e)
+                    print(_('Exception in removing old profile image: '), e)
                 request.user.photo = request.FILES['photo']
                 request.user.save()
             return redirect('profile')

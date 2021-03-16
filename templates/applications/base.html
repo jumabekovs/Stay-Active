@@ -3,13 +3,15 @@
 {% load static %}
 {% load socialaccount %}
 {% providers_media_js %}
+{% load i18n %}
+{% load static i18n %}
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="TopGym Template">
     <meta name="keywords" content="TopGym, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TopGym | Fitness HTML Template</title>
+    <title>Stay Active</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,700,900" rel="stylesheet">
@@ -41,16 +43,33 @@
                         </div>
                         <nav class="mobile-menu">
                             <ul>
-                                <li><a href="{% url 'home' %}">Home</a></li>
-                                <li><a href="{% url 'clubs' %}">Clubs</a></li>
-                                <li><a href="{% url 'cards' %}">Offers</a></li>
-                                <li><a href="{% url 'blog' %}">News</a></li>
-                                <li><a href="{% url 'blog' %}">News</a></li>
-                                <li><a href="./contact.html">Contact</a></li>
+                                <li><a href="{% url 'home' %}">{% trans 'Home' %}</a></li>
+                                <li><a href="{% url 'clubs' %}">{% trans 'Clubs' %}</a></li>
+                                <li><a href="{% url 'cards' %}">{% trans 'Offers' %}</a></li>
+                                <li><a href="{% url 'blog' %}">{% trans 'News' %}</a></li>
+                                <li><a href="{% url 'blog' %}">{% trans 'News'</a></li>
+                                <li><a href="./contact.html">{% trans 'Contact' %}</a></li>
                                 <li class="search-btn search-trigger"><i class="fa fa-search"></i></li>
                             </ul>
                         </nav>
                         <div id="mobile-menu-wrap"></div>
+                         <li>
+                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                        <input name="next" type="hidden" value="{{ redirect_to }}">
+                        <select name="language">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% get_available_languages as LANGUAGES %}
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            {% for language in languages %}
+                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                                        selected{% endif %}>
+                                    {{ language.name_local }} ({{ language.code }})
+                                </option>
+                            {% endfor %}
+                        </select>
+                        <input type="submit" value="Go">
+                    </form>
+                </li>
                     </div>
                 </div>
             </div>
@@ -81,11 +100,11 @@
             <ul>
                 {% if user.is_authenticated %}
                 <p>Welcome, {{ user.email }} !</p><br>
-                <a href="{% url 'profile' %}">Profile</a>
-                <li><a href="{% url 'logout' %}">signout</a>
+                <a href="{% url 'profile' %}">{% trans Profile %}</a>
+                <li><a href="{% url 'logout' %}">{% trans signout %}</a>
                 {% else %}
-                <li><a href="{% url 'registration' %}">signup</a></li>
-                <li><a href="{% url 'sign-in' %}">signin</a></li>
+                <li><a href="{% url 'registration' %}">{% trans signup%}</a></li>
+                <li><a href="{% url 'sign-in' %}">{% trans signin%}</a></li>
                 <a href="{% provider_login_url 'google' %}">Google</a>
                 <a href="{% provider_login_url 'facebook' method='oauth2' %}">Facebook</a><br>
                 {% endif %}
@@ -96,7 +115,7 @@
 {% block content %}
 
 {% endblock %}
-{{ captcha }}
+
 <footer class="footer-section set-bg" data-setbg="{% static 'img/footer-bg.jpg' %}">
         <div class="container">
             <div class="row">
@@ -107,18 +126,18 @@
                         </div>
                         <div class="footer-menu">
                             <ul>
-                                <li><a href="./index.html">Home</a></li>
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">Classes</a></li>
-                                <li><a href="#">Instructors</a></li>
-                                <li><a href="#">News</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="./index.html">{% trans 'Home' %}</a></li>
+                                <li><a href="#">{% trans 'About us' %}</a></li>
+                                <li><a href="#">{% trans 'Classes' %}</a></li>
+                                <li><a href="#">{% trans 'Instructors' %}</a></li>
+                                <li><a href="#">{% trans 'News' %}</a></li>
+                                <li><a href="#">{% trans 'Contact' %]</a></li>
                             </ul>
                         </div>
                         <div class="subscribe-form">
                             <form action="#">
                                 <input type="text" placeholder="your Email">
-                                <button type="submit">Sign Up</button>
+                                <button type="submit">{% trans 'Sign Up' %}</button>
                             </form>
                         </div>
                         <div class="social-links">

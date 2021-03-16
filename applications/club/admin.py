@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import ClubImage, Club
+from modeltranslation.admin import TranslationAdmin
 
 
 class ClubImageAdmin(admin.TabularInline):
@@ -8,7 +9,7 @@ class ClubImageAdmin(admin.TabularInline):
     extra = 0
 
 
-class ClubAdmin(admin.ModelAdmin):
+class ClubAdmin(TranslationAdmin):
     inlines = [ClubImageAdmin, ]
 
 

@@ -18,9 +18,9 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,6 +50,7 @@ SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -123,7 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'Asia/Bishkek'
 
@@ -133,9 +134,33 @@ USE_L10N = True
 
 USE_TZ = True
 
+gettext = lambda s: s
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
+EXTRA_LANG_INFO = {
+    'ky': {
+        'bidi': False, # right-to-left
+        'code': 'ky',
+        'name': 'Kyrgyz',
+        'name_local': 'Кыргыз тили', #unicode codepoints here
+    },
+}
+
+# Add custom languages not provided by Django
+import django.conf.locale
+LANG_INFO = dict(django.conf.locale.LANG_INFO, **EXTRA_LANG_INFO)
+django.conf.locale.LANG_INFO = LANG_INFO
+
+LANGUAGES = (
+    ('en', gettext('English')),
+    ('ru', gettext('Russian')),
+    ('ky', gettext('Kyrgyz'))
+)
+
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
+LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale', ),)
+
+
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
@@ -202,3 +227,4 @@ RECAPTCHA_PRIVATE_KEY = config('RECAPTCHA_PRIVATE_KEY')
 RECAPTCHA_REQUIRED_SCORE = 0.85
 RECAPTCHA_DEFAULT_ACTION = 'generic'
 RECAPTCHA_REQUIRED_TRESHOLD = 0.5
+

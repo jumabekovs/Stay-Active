@@ -1,5 +1,5 @@
 from django.contrib import admin
-
+from modeltranslation.admin import TranslationAdmin
 from applications.blog.models import Post, ExtendPost, AuthorPost
 
 
@@ -9,8 +9,11 @@ class ExtendPostInline(admin.TabularInline):
     extra = 2
 
 
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(TranslationAdmin):
+    list_display = ('title', 'blogger')
     inlines = [ExtendPostInline, ]
+    search_fields = ('title',)
+    list_display_links = ('blogger',)
 
 
 admin.site.register(Post, PostAdmin)

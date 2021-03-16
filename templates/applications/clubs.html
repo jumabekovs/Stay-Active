@@ -1,6 +1,8 @@
 {% extends 'applications/base.html' %}
 {% load static %}
 {% block content %}
+{% load static i18n %}
+
     <!-- Top Social End -->
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-area set-bg" data-setbg="{% static 'img/classes/classes-bg.jpg' %}">
@@ -10,8 +12,8 @@
                     <div class="breadcrumb-content">
                         <h2>Classes</h2>
                         <div class="links">
-                            <a href="{% url 'home' %}">Home</a>
-                            <a href="{% url 'clubs' %}" class="rt-breadcrumb">Clubs</a>
+                            <a href="{% url 'home' %}">{% trans Home %}</a>
+                            <a href="{% url 'clubs' %}" class="rt-breadcrumb">{% trans Clubs %}</a>
                         </div>
                     </div>
                 </div>
@@ -19,9 +21,9 @@
         </div>
     </section>
                         <div class="links">
-                            <a href="{% url 'clubs' %}?filter=men">only for Men</a>
-                            <a href="{% url 'clubs' %}?filter=women" class="rt-breadcrumb">only for Women</a>
-                            <a href="{% url 'clubs' %}?filter=both">for Both</a>
+                            <a href="{% url 'clubs' %}?filter=men">{% trans 'only for Men '%}</a>
+                            <a href="{% url 'clubs' %}?filter=women">{% trans 'only for Women' %}</a>
+                            <a href="{% url 'clubs' %}?filter=both">{% trans 'for Both'%}</a>
                         </div>
     <!-- Breadcrumb Section End -->
     <!-- Classes Section Begin -->
