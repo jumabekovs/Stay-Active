@@ -36,6 +36,11 @@
                             </div>
                             <div class="discount">
                                 <h1>{{ card.type }} <span>{{ card.duration }}</span></h1>
+                                {% if request.user.is_authenticated %}
+                                 <span class="storefront_add_to_cart">
+                                     <a href="{% url 'get_card' card.id %}">Purchase</a>
+                                 </span>
+                                 {% endif %}
                             </div>
                         </div>
                     </div>

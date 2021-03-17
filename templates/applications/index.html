@@ -32,7 +32,7 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="single-features">
                         <div class="features-img">
-                            <a href="{% url 'clubs-category' club_category.slug %}"><img src="{{ club_category.logo.url }}" alt=""></a>
+                            <a href="{% url 'clubs-category' club_category.slug %}"><img src="{{ club_category.logo.url|default_if_none:'#' }}" alt=""></a>
                         </div>
                         <div class="feature-text">
                             <div class="feature-icon">

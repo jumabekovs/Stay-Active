@@ -37,8 +37,8 @@
                 <div class="col-lg-12">
                     <div class="main-menu">
                         <div class="logo">
-                            <a href="./index.html">
-                                <img src="{% static 'img/logo.png' %}" alt="">
+                            <a href="{% url 'home' %}">
+                                <img src="{% static 'img/logo1.png' %}" alt="">
                             </a>
                         </div>
                         <nav class="mobile-menu">
@@ -47,7 +47,7 @@
                                 <li><a href="{% url 'clubs' %}">{% trans 'Clubs' %}</a></li>
                                 <li><a href="{% url 'cards' %}">{% trans 'Offers' %}</a></li>
                                 <li><a href="{% url 'blog' %}">{% trans 'News' %}</a></li>
-                                <li><a href="{% url 'blog' %}">{% trans 'News'</a></li>
+                                <li><a href="{% url 'blog' %}">{% trans 'News' %}</a></li>
                                 <li><a href="./contact.html">{% trans 'Contact' %}</a></li>
                                 <li class="search-btn search-trigger"><i class="fa fa-search"></i></li>
                             </ul>
@@ -85,7 +85,7 @@
                     <h2>Search</h2>
                     <form action="{% url 'clubs' %}">
                         <input type="search" placeholder="Type Keywords">
-                        <button type="submit">Search</button>
+                        <button type="submit">{% trans 'Search' %}}</button>
                     </form>
                 </div>
             </div>
@@ -100,11 +100,11 @@
             <ul>
                 {% if user.is_authenticated %}
                 <p>Welcome, {{ user.email }} !</p><br>
-                <a href="{% url 'profile' %}">{% trans Profile %}</a>
-                <li><a href="{% url 'logout' %}">{% trans signout %}</a>
+                <a href="{% url 'profile' %}">{% trans 'Profile' %}</a>
+                <li><a href="{% url 'logout' %}">{% trans 'signout' %}</a>
                 {% else %}
-                <li><a href="{% url 'registration' %}">{% trans signup%}</a></li>
-                <li><a href="{% url 'sign-in' %}">{% trans signin%}</a></li>
+                <li><a href="{% url 'registration' %}">{% trans 'signup'%}</a></li>
+                <li><a href="{% url 'sign-in' %}">{% trans 'signin' %}</a></li>
                 <a href="{% provider_login_url 'google' %}">Google</a>
                 <a href="{% provider_login_url 'facebook' method='oauth2' %}">Facebook</a><br>
                 {% endif %}

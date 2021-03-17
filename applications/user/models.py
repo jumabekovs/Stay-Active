@@ -25,6 +25,7 @@ class User(AbstractBaseUser):
     phone = models.CharField(max_length=14, blank=True, null=True, help_text=_('Contact phone number'))
     gender = models.CharField(max_length=2, choices=GENDER_CHOICES, default='NS')
     photo = models.ImageField(default="default_profile.png", upload_to='profile_images')
+    card_purchased = models.BooleanField(default=False)
     objects = CustomUserManager()
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
