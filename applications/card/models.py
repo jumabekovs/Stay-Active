@@ -19,27 +19,41 @@ OFFER_STATUS = (
 )
 
 
+SHIPMENT_CHOICE = (
+    ('Pick up at club', _('Pick-up at the club')),
+    ('Courier', _('Courier')),
+)
+
+SHIPMENT_PRICE = (
+    (0, 0.00),
+    (200, 200.00),
+)
+
+
 class Card(models.Model):
     type = models.ForeignKey(CategoryOffer, on_delete=models.DO_NOTHING, related_name='offers')
     duration = models.CharField(max_length=55, choices=OFFER_DURATION)
-    price = models.CharField(max_length=15)
+    price = models.PositiveIntegerField()
     description = models.TextField()
 
 
     def __str__(self):
-        return f'{self.type}-{self.duration}-{self.price}'
+        return f'{self.type}-{self.duration}'
 
 
 
 class Offer(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    client = models.ForeignKey(User, null=True, on_delete=models.CASCADE, related_name='orders', blank=True)
+    client = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders', blank=True)
     card = models.ForeignKey(Card, related_name='card_orders', on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     activation_date = models.DateTimeField(blank=True, null=True)
     expire_date = models.DateTimeField(blank=True, null=True)
     status = models.CharField(max_length=10, choices=OFFER_STATUS, default='Inactive')
     paid = models.BooleanField(default=False)
+    shipment = models.CharField(max_length=50, choices=SHIPMENT_CHOICE, default='Pick up at club')
+    shipment_price = models.PositiveIntegerField(choices=SHIPMENT_PRICE, default=0)
+    total_fee = models.PositiveIntegerField(default=0)
 
     def activate_card(self):
         self.paid = True
