@@ -1,31 +1,25 @@
 {% extends 'applications/auth_base.html' %}
 {% load static i18n %}
-{% block title %}{% trans 'Welcome to our web-site' %}{% endblock title %}
+{% block title %}{% trans 'Welcome to our Stay-Active' %}{% endblock title %}
 {% block content %}
-<!--  <form method="post">-->
-<!--    {% csrf_token %}-->
-<!--    {{ form.as_p }}-->
-<!--    <button type="submit">{% trans 'Log in' %}</button>-->
-<!--  </form>-->
-
 
     <div class="content-section">
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Log In</legend>
+                <legend class="border-bottom mb-4">{% trans 'Log In' %}</legend>
                 {{ form.as_p }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Login</button>
+                <button class="btn btn-outline-info" type="submit">{% trans 'Login' %}</button>
                 <small class="text-muted ml-2">
-                    <a href="{% url 'password_reset' %}">Forgot Password?</a>
+                    <a href="{% url 'password_reset' %}">{% trans 'Forgot Password?' %}</a>
                 </small>
             </div>
         </form>
         <div class="border-top pt-3">
             <small class="text-muted">
-                Need An Account? <a class="ml-2" href="{% url 'registration' %}">Sign Up Now</a>
+                {% trans 'Need An Account?' %} <a class="ml-2" href="{% url 'registration' %}">{% trans 'Sign Up Now' %}</a>
             </small>
         </div>
     </div>
