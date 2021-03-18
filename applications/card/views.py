@@ -5,7 +5,7 @@ from django.shortcuts import redirect, render
 from django.views.generic import ListView
 from django.views.generic.base import View
 
-from .models import Card, Offer
+from .models import Card, Offer, OfferHistory
 
 
 class CardsView(ListView):
@@ -22,6 +22,7 @@ class AddCardToProfile(View):
             user = request.user
             card = Card.objects.get(pk=card_id)
             Offer.objects.get_or_create(client=user, card=card, paid=True)
+            OfferHistory.objects.get_or_create(client=user, card=card, paid=True)
             messages.add_message(request, messages.INFO, 'You purchased a card')
             return redirect('profile')
         except IntegrityError:

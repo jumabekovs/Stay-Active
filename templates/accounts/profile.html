@@ -1,20 +1,6 @@
 {% extends 'applications/base.html' %}
 {% load static i18n %}
-
-
-
-
-
-	{% block content %}
-
-
-<!--<form method="post" class="uniForm">-->
-<!--    {{ my_formset}}-->
-<!--    -->
-<!--</form>-->
-
-	<!--User-->
-
+{% block content %}
 
 	<br><br>
 	<div class="container mx-auto">
@@ -94,5 +80,42 @@
 		    </div>
 		</div>
 	</div>
+
+
+		<br><br>
+	<div class="container mx-auto">
+	    <div class="row">
+	    	<div class="col-sm-12 col-md-12 col-lg-3 pb-4">
+		    	...
+		  	</div>
+		    <div class="col-sm-12 col-md-12 col-lg-9 pb-4">
+		    	<div class="row">
+		    		<div class="col-6 my-auto">
+		    			<h2 class="font-weight-bold pt-4">{% trans 'History' %}</h2>
+		    		</div>
+		    	</div>
+		      	<br>
+		      	<div class="row">
+			      	{% for offer in user.orders_hisory.all %}
+				    	<div class="col-sm-12 col-md-6 col-lg-4 pb-4">
+			                <div class="h-100">
+			                	<div class="card-body">
+			                  		<h5 class="card-title">{{ offer.card.price }}</h5>
+			                    	<p class="card-text text-muted" style="font-size:12px">{{ offer }}</p>
+									<p class="card-text text-muted" style="font-size:12px">{{ offer.date_created }}</p>
+									<p class="card-text text-muted" style="font-size:12px">{{ offer.status }}</p>
+									<p class="card-text text-muted" style="font-size:12px">{{ offer.expire_date }}</p>
+
+			                	</div>
+			              	</div>
+			            </div>
+			    	{% endfor %}
+		        </div>
+		    </div>
+		</div>
+	</div>
+
+
+
 
 	{% endblock %}

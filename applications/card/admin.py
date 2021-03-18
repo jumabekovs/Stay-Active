@@ -1,7 +1,7 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 
-from .models import Card, Offer
+from .models import Card, Offer, OfferHistory
 
 
 class CardAdmin(TranslationAdmin):
@@ -20,3 +20,4 @@ class OfferAdmin(admin.ModelAdmin):
 
 admin.site.register(Card, CardAdmin)
 admin.site.register(Offer, OfferAdmin)
+admin.site.register(OfferHistory)

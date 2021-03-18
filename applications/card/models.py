@@ -82,4 +82,23 @@ class Offer(models.Model):
 
 
 
+class OfferHistory(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    client = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders_hisory', blank=True)
+    card = models.ForeignKey(Card, related_name='card_orders_hisory', on_delete=models.CASCADE)
+    date_created = models.DateTimeField(auto_now_add=True, null=True)
+    activation_date = models.DateTimeField(blank=True, null=True)
+    expire_date = models.DateTimeField(blank=True, null=True)
+    status = models.CharField(max_length=10, choices=OFFER_STATUS, default='Inactive')
+    paid = models.BooleanField(default=False)
+    shipment = models.CharField(max_length=50, choices=SHIPMENT_CHOICE, default='Pick up at club')
+    shipment_price = models.PositiveIntegerField(choices=SHIPMENT_PRICE, default=0)
+    total_fee = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        verbose_name = _('Offer History')
+        verbose_name_plural = _('Offer History')
+
+    def __str__(self):
+        return f'{self.client.email}-->{self.card}'
 
