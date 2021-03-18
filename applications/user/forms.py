@@ -45,13 +45,13 @@ class RegistrationForm(forms.ModelForm):
     def save(self, commit=True):
         # Save the provided password in hashed format
         user = super().save(commit=False)
-        print(user)
         user.is_active = False    # deactivating user
-        user.set_password(self.cleaned_data["password"])
+        user.set_password(self.cleaned_data['password'])
         if commit:
             user.save()
             send_activation_code(user)
         return user
+
 
 
 
