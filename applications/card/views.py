@@ -34,9 +34,9 @@ class RemoveCardToProfile(View):
 
     def get(self, request, *args, **kwargs):
         offer_id = kwargs.get('pk')
-        print(offer_id)
         offer = Offer.objects.get(pk=offer_id)
-        print(offer)
         offer.delete()
         messages.add_message(request, messages.INFO, 'You card has been removed!')
         return redirect('profile')
+
+

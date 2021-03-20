@@ -29,6 +29,7 @@
 /* Template default CSS
 /*----------------------------------------*/
 
+
 html,
 body {
 	height: 100%;
@@ -91,7 +92,7 @@ button:focus,
 textarea:focus {
 	outline: none;
 }
-
+a,
 a:hover,
 a:focus {
 	text-decoration: none;
@@ -104,13 +105,17 @@ ol {
 	padding: 0;
 	margin: 0;
 }
+li{
+	list-style: none;
+}
 
 /*---------------------
   Helper CSS
 -----------------------*/
 
 .section-title {
-	margin-bottom: 84px;
+	margin-bottom: 50px;
+	text-align: center;
 }
 
 .section-title span {
@@ -138,7 +143,7 @@ ol {
 }
 
 .spad {
-	padding-top: 95px;
+	padding-top: 50px;
 	padding-bottom: 90px;
 }
 
@@ -242,6 +247,24 @@ ol {
 	}
 }
 
+/* Profile */
+.profile {
+	margin-top: 10%;
+}
+.profile-card{
+	justify-content: space-around;
+    align-items: flex-start;
+}
+.profile-item{
+	margin-top: 20%;
+	background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+.btn-profile{
+	width: 209px;
+}
 /*---------------------
   Header
 -----------------------*/
@@ -270,10 +293,10 @@ ol {
 }
 
 .main-menu .logo {
-	position: absolute;
+	/* position: absolute;
 	left: 50%;
 	top: 30px;
-	margin-left: -42.5px;
+	margin-left: -42.5px; */
 }
 
 .main-menu .logo a {
@@ -284,14 +307,14 @@ ol {
 
 .main-menu ul {
 	list-style: none;
-	text-align: right;
-	margin-left: 200px;
+	display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
-
 .main-menu ul li {
-	float: none;
+	/* float: none;
 	display: inline-block;
-	padding: 4px;
+	padding: 4px; */
 }
 
 .main-menu ul li a {
@@ -302,19 +325,19 @@ ol {
 	text-transform: uppercase;
 }
 
-.main-menu ul li:nth-child(1) {
+/* .main-menu ul li:nth-child(1) {
 	float: left;
 	margin-right: 40px;
 	padding: 4px;
-}
+} */
 
-.main-menu ul li:nth-child(2) {
+/* .main-menu ul li:nth-child(2) {
 	float: left;
 	margin-right: 20px;
 	padding: 4px;
-}
+} */
 
-.main-menu ul li:nth-child(3) {
+/* .main-menu ul li:nth-child(3) {
 	float: left;
 	padding: 4px;
 }
@@ -327,7 +350,7 @@ ol {
 .main-menu ul li:nth-child(5) {
 	margin-right: 35px;
 	padding: 4px;
-}
+} */
 
 .main-menu ul .search-btn {
 	color: #fff;
@@ -344,36 +367,36 @@ ol {
 -----------------------*/
 
 .top-social {
-	position: absolute;
+	position: relative;
 	z-index: 999;
-	right: 0;
 }
 
 .top-social .top-social-links {
-	width: 121px;
-	background: #000;
-	text-align: center;
-	padding-top: 32px;
-	padding-bottom: 19px;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+    left: 88%;
+    top: -58px;
+}
 }
 
 .top-social .top-social-links ul li {
-	list-style: none;
-	margin-bottom: 22px;
+	/* list-style: none;
+	margin-bottom: 22px; */
 }
 
 .top-social .top-social-links ul li a {
-	display: inline-block;
+	/* display: inline-block;
 	width: 48px;
 	height: 48px;
 	background: #081624;
 	border-radius: 50%;
 	color: #fff;
-	line-height: 48px;
+	line-height: 48px; */
 }
 
 .top-social .top-social-links ul li:last-child {
-	margin-bottom: 0;
+	/* margin-bottom: 0; */
 }
 
 /*---------------------
@@ -547,7 +570,13 @@ ol {
 /*---------------------
   Features
 -----------------------*/
-
+.features-item{
+	display: flex;
+    justify-content: space-around;
+}
+.single-features{
+	max-width: 350px;
+}
 .single-features .features-img img {
 	min-width: 100%;
 }
@@ -558,16 +587,13 @@ ol {
 	text-align: center;
 }
 
-.single-features .feature-text .feature-icon {
+/* .single-features .feature-text {
 	display: inline-block;
 	height: 88px;
 	width: 88px;
-	background: #233EDE;
-	border-radius: 50%;
 	line-height: 83px;
-	margin-bottom: 40px;
-	margin-top: -34px;
-}
+
+} */
 
 .single-features .feature-text h5 {
 	color: #353535;
@@ -576,6 +602,7 @@ ol {
 	letter-spacing: 1.5px;
 	text-transform: uppercase;
 	margin-bottom: 22px;
+	margin-top: 25px;
 }
 
 .single-features .feature-text p {

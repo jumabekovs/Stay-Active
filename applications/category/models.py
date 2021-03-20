@@ -53,7 +53,7 @@ class CategoryClub(models.Model):
         verbose_name_plural = _('Club Categories')
 
     def __str__(self):
-        return f'{self.slug}'
+        return f'{self.title}'
 
     def get_image_url(self):
         if self.logo:

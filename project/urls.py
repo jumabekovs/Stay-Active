@@ -3,15 +3,10 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from applications.blog.views import SendWishes
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', include('applications.blog.urls')),
-    # path('clubs/', include('applications.club.urls')),
-    # path('offers/', include('applications.card.urls')),
-    # path('category/', include('applications.category.urls')),
-    # path('accounts/', include('applications.user.urls')),
-    # path('accounts/', include('allauth.urls')),
     path('accounts/', include('allauth.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
 ]

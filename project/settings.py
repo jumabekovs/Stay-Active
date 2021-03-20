@@ -138,26 +138,42 @@ gettext = lambda s: s
 
 EXTRA_LANG_INFO = {
     'ky': {
-        'bidi': False, # right-to-left
+        'bidi': False,  # right-to-left
         'code': 'ky',
         'name': 'Kyrgyz',
-        'name_local': 'Кыргыз тили', #unicode codepoints here
+        'name_local': 'КY', #unicode codepoints here
     },
+}
+
+LANG_INFO = {
+    'ru': {
+        'bidi': False,  # right-to-left
+        'code': 'ru',
+        'name': 'Russian',
+        'name_local': 'RU', #unicode codepoints here
+    },
+    'en': {
+        'bidi': False,  # right-to-left
+        'code': 'en',
+        'name': 'English',
+        'name_local': 'EN', #unicode codepoints here
+    },
+    
 }
 
 # Add custom languages not provided by Django
 import django.conf.locale
-LANG_INFO = dict(django.conf.locale.LANG_INFO, **EXTRA_LANG_INFO)
+LANG_INFO = dict(LANG_INFO, **EXTRA_LANG_INFO)
 django.conf.locale.LANG_INFO = LANG_INFO
 
 LANGUAGES = (
-    ('en', gettext('English')),
-    ('ru', gettext('Russian')),
-    ('ky', gettext('Kyrgyz'))
+    ('en', gettext('EN')),
+    ('ru', gettext('RU')),
+    ('ky', gettext('KY'))
 )
 
 
-MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
 LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale', ),)
 
 

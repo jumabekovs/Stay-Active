@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'applications/auth_base.html' %}
+{% load static i18n %}
+{% block title %}{% trans 'Write your wish' %}{% endblock title %}
+{% block content %}
+<h1>{% trans 'Contact us' %}</h1>
+    <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">{% trans 'Send' %}</button>
+    </form>
 
-</body>
-</html>
+  </form>
+{% endblock %}

@@ -13,4 +13,5 @@ class ClubAdmin(TranslationAdmin):
     inlines = [ClubImageAdmin, ]
 
 
+
 admin.site.register(Club, ClubAdmin)

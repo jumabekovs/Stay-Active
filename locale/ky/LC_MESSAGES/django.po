@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-17 04:12+0600\n"
+"POT-Creation-Date: 2021-03-19 15:31+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,126 +21,114 @@ msgstr ""
 #: templates/account/account_inactive.html:5
 #: templates/account/account_inactive.html:8
 msgid "Account Inactive"
-msgstr ""
+msgstr "Активделбеген аккаунт"
 
 #: templates/account/account_inactive.html:10
 msgid "This account is inactive."
-msgstr ""
+msgstr "Бул активделбеген аккаунт"
 
 #: templates/account/email.html:5 templates/account/email.html:8
 msgid "E-mail Addresses"
-msgstr ""
+msgstr "Почта дареги"
 
 #: templates/account/email.html:10
 msgid "The following e-mail addresses are associated with your account:"
-msgstr ""
+msgstr "Бул почта дареги сиздин аккаунт менен байланышкан"
 
 #: templates/account/email.html:24
 msgid "Verified"
-msgstr ""
+msgstr "Текшерилген"
 
 #: templates/account/email.html:26
 msgid "Unverified"
-msgstr ""
+msgstr "Текшерилбеген"
 
 #: templates/account/email.html:28
 msgid "Primary"
-msgstr ""
+msgstr "Негизги"
 
 #: templates/account/email.html:34
 msgid "Make Primary"
-msgstr ""
+msgstr "Башкы кылуу"
 
 #: templates/account/email.html:35
 msgid "Re-send Verification"
-msgstr ""
+msgstr "Текшерууну кайра жонотуу"
 
 #: templates/account/email.html:36 templates/socialaccount/connections.html:35
 msgid "Remove"
-msgstr ""
+msgstr "Алып салуу"
 
 #: templates/account/email.html:43
 msgid "Warning:"
-msgstr ""
+msgstr "Этият болунуз:"
 
 #: templates/account/email.html:43
 msgid ""
 "You currently do not have any e-mail address set up. You should really add "
 "an e-mail address so you can receive notifications, reset your password, etc."
-msgstr ""
+msgstr "Азыр сизде почта дарегиниз катталбаган. Почтага билдируулорду алуу учун, парольду алмаштыруу учун почта дарегинизди кошунуз"
 
 #: templates/account/email.html:48
 msgid "Add E-mail Address"
-msgstr ""
+msgstr "Почта дарегинизди кошунуз"
 
 #: templates/account/email.html:53
 msgid "Add E-mail"
-msgstr ""
+msgstr "Почта дарегин кошуу"
 
 #: templates/account/email.html:63
 msgid "Do you really want to remove the selected e-mail address?"
-msgstr ""
+msgstr "Сиз ушул почта дарегин алып салгыныз келеби?"
 
 #: templates/account/email_confirm.html:6
 #: templates/account/email_confirm.html:10
 msgid "Confirm E-mail Address"
-msgstr ""
+msgstr "Почта дарегин каттаныз"
 
-#: templates/account/email_confirm.html:16
-#, python-format
-msgid ""
-"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
-"address for user %(user_display)s."
-msgstr ""
 
 #: templates/account/email_confirm.html:20
 msgid "Confirm"
-msgstr ""
+msgstr "Аныктоо"
 
 #: templates/account/email_confirm.html:27
 #, python-format
 msgid ""
 "This e-mail confirmation link expired or is invalid. Please <a href="
 "\"%(email_url)s\">issue a new e-mail confirmation request</a>."
-msgstr ""
+msgstr "Почта дарегин каттоо учун берилген токен жараксыз, же колдонулган <a href="
+"\"%(email_url)s\">"
 
 #: templates/account/login.html:6 templates/account/login.html:10
-#: templates/account/login.html:43
+#: templates/account/login.html:43 templates/accounts/registration.html:27
 msgid "Sign In"
-msgstr ""
+msgstr "Кошулуу"
 
-#: templates/account/login.html:15
-#, python-format
-msgid ""
-"Please sign in with one\n"
-"of your existing third party accounts. Or, <a href=\"%(signup_url)s\">sign "
-"up</a>\n"
-"for a %(site_name)s account and sign in below:"
-msgstr ""
 
 #: templates/account/login.html:25
 msgid "or"
-msgstr ""
+msgstr "же"
 
 #: templates/account/login.html:32
 #, python-format
 msgid ""
 "If you have not created an account yet, then please\n"
 "<a href=\"%(signup_url)s\">sign up</a> first."
-msgstr ""
+msgstr "Сизде аккаунт жок болсо, анда <a href=\"%(signup_url)s\">sign up</a>"
 
 #: templates/account/login.html:42 templates/account/password_change.html:14
+#: templates/accounts/sign_in.html:16
 msgid "Forgot Password?"
-msgstr ""
+msgstr "Парольунузду унутуп калдынызбы?"
 
 #: templates/account/logout.html:5 templates/account/logout.html:8
 #: templates/account/logout.html:17
 msgid "Sign Out"
-msgstr ""
+msgstr "Чыгыуу"
 
 #: templates/account/logout.html:10
 msgid "Are you sure you want to sign out?"
-msgstr ""
+msgstr "Чындап эле чыккыныз кели жатабы?"
 
 #: templates/account/password_change.html:5
 #: templates/account/password_change.html:8
@@ -150,38 +138,38 @@ msgstr ""
 #: templates/account/password_reset_from_key_done.html:4
 #: templates/account/password_reset_from_key_done.html:7
 msgid "Change Password"
-msgstr ""
+msgstr "Парольду алмаштыруу"
 
 #: templates/account/password_reset.html:6
 #: templates/account/password_reset.html:10
 #: templates/account/password_reset_done.html:6
 #: templates/account/password_reset_done.html:9
 msgid "Password Reset"
-msgstr ""
+msgstr "Парольду алмаштыр"
 
 #: templates/account/password_reset.html:15
 msgid ""
 "Forgotten your password? Enter your e-mail address below, and we'll send you "
 "an e-mail allowing you to reset it."
-msgstr ""
+msgstr "Парольду унутсаныз, почта дарагинизди жазынызды, сизге парольду алмаштыруу катын жоготобуз."
 
 #: templates/account/password_reset.html:20
 msgid "Reset My Password"
-msgstr ""
+msgstr "Парольду алмаштыр"
 
 #: templates/account/password_reset.html:23
 msgid "Please contact us if you have any trouble resetting your password."
-msgstr ""
+msgstr "Парольду алмаштырууда кыйынчылыктар болсо, бизге билдириниз."
 
 #: templates/account/password_reset_done.html:15
 msgid ""
 "We have sent you an e-mail. Please contact us if you do not receive it "
 "within a few minutes."
-msgstr ""
+msgstr "Сизге кат жоноттук. Кат келбесе бизге дароо билдириниз."
 
 #: templates/account/password_reset_from_key.html:7
 msgid "Bad Token"
-msgstr ""
+msgstr "Токен жараксыз."
 
 #: templates/account/password_reset_from_key.html:11
 #, python-format
@@ -189,37 +177,38 @@ msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
 "a>."
-msgstr ""
+msgstr "Бул линк жараксыз же мурда колдонулган, кайра аракеттениз <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>.."
 
 #: templates/account/password_reset_from_key.html:17
 msgid "change password"
-msgstr ""
+msgstr "парольду алмаштыр"
 
 #: templates/account/password_reset_from_key.html:20
 #: templates/account/password_reset_from_key_done.html:8
 msgid "Your password is now changed."
-msgstr ""
+msgstr "Парольунуз алмаштырылды."
 
 #: templates/account/password_set.html:5 templates/account/password_set.html:8
 #: templates/account/password_set.html:13
 msgid "Set Password"
-msgstr ""
+msgstr "Пароль коюнуз."
 
 #: templates/account/signup.html:5 templates/socialaccount/signup.html:5
 msgid "Signup"
-msgstr ""
+msgstr "Катталуу"
 
 #: templates/account/signup.html:8 templates/account/signup.html:18
-#: templates/accounts/registration.html:16 templates/applications/base.html:140
+#: templates/accounts/registration.html:22 templates/applications/base.html:140
 #: templates/socialaccount/signup.html:8 templates/socialaccount/signup.html:19
 msgid "Sign Up"
-msgstr ""
+msgstr "Катталуу"
 
 #: templates/account/signup.html:10
 #, python-format
 msgid ""
 "Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
-msgstr ""
+msgstr "Аккаунтуз барбы? Анда <a href=\"%(login_url)s\">sign in</a>."
 
 #: templates/account/signup_closed.html:5
 #: templates/account/signup_closed.html:8
@@ -244,14 +233,14 @@ msgstr ""
 #: templates/account/verified_email_required.html:5
 #: templates/account/verified_email_required.html:8
 msgid "Verify Your E-mail Address"
-msgstr ""
+msgstr "Почта дарегин тастыктаныз."
 
 #: templates/account/verification_sent.html:10
 msgid ""
 "We have sent an e-mail to you for verification. Follow the link provided to "
 "finalize the signup process. Please contact us if you do not receive it "
 "within a few minutes."
-msgstr ""
+msgstr "Биз сизге почта деригизди тастыктоо учун кат жоноттук. Каттоону аяктоо учун почта дарегизди тастыктаныз. Кат келбесе, бизге дароо билдириниз."
 
 #: templates/account/verified_email_required.html:12
 msgid ""
@@ -276,91 +265,141 @@ msgstr ""
 
 #: templates/accounts/activation.html:3
 msgid "Account Activation"
-msgstr ""
+msgstr "Аккаунтту активдештируу"
 
 #: templates/accounts/activation.html:6
 msgid "Your account has been activated successfully"
-msgstr ""
+msgstr "Сиздин аккаунт ийгиликтуу активделинди."
 
 #: templates/accounts/activation.html:7
 msgid "To log in to your account, please follow this"
-msgstr ""
+msgstr "Аккаунтка кируу учун ушул линккти басыныз"
 
 #: templates/accounts/activation.html:7
 msgid "link"
-msgstr ""
+msgstr "линкти"
 
 #: templates/accounts/edit_profile.html:3
 msgid "Edit Profile"
-msgstr ""
+msgstr "Профильди алмаштыруу"
+
+#: templates/accounts/edit_profile.html:5
+msgid "Please fill the registration form"
+msgstr "Каттоо баракчасын толтурунуз"
 
 #: templates/accounts/edit_profile.html:9
 msgid "Update"
-msgstr ""
+msgstr "Жанылоо"
 
-#: templates/accounts/profile.html:22
+#: templates/accounts/password_reset_complete.html:5
+msgid "Your password has been set."
+msgstr "Парольунуз жанылынды."
+
+#: templates/accounts/password_reset_complete.html:7
+msgid "Sign In Here"
+msgstr "Кириниз"
+
+#: templates/accounts/password_reset_confirm.html:9
+#: templates/accounts/password_reset_confirm.html:13
+#: templates/accounts/password_reset_form.html:8
+msgid "Reset Password"
+msgstr "Парольду алмаштыруу"
+
+#: templates/accounts/password_reset_done.html:5
+msgid "An email has been sent with instructions to reset your password."
+msgstr "Пароль озгортуу боюнча каты почта дарегинизге жонотулду"
+
+#: templates/accounts/password_reset_form.html:12
+msgid "Request Password Reset"
+msgstr "Парольду алмаштыр"
+
+#: templates/accounts/profile.html:10
 msgid "Hello"
-msgstr ""
+msgstr "Саламатсызбы"
+
+#: templates/accounts/profile.html:13
+msgid "Username"
+msgstr "Никнейм"
+
+#: templates/accounts/profile.html:15
+msgid "Name"
+msgstr "Аты"
+
+#: templates/accounts/profile.html:17
+msgid "Email"
+msgstr "Почта дареги"
+
+#: templates/accounts/profile.html:19
+msgid "Birthday"
+msgstr "Туулган куну"
+
+#: templates/accounts/profile.html:21
+msgid "Gender"
+msgstr "Жыныстыгы"
+
+#: templates/accounts/profile.html:23
+msgid "Phone"
+msgstr "Телефон номуру"
 
 #: templates/accounts/profile.html:25
-msgid "Username"
-msgstr ""
-
-#: templates/accounts/profile.html:27
-msgid "Name"
-msgstr ""
-
-#: templates/accounts/profile.html:29
-msgid "Email"
-msgstr ""
-
-#: templates/accounts/profile.html:31
-msgid "Birthday"
-msgstr ""
-
-#: templates/accounts/profile.html:33
-msgid "Gender"
-msgstr ""
-
-#: templates/accounts/profile.html:35
-msgid "Phone"
-msgstr ""
-
-#: templates/accounts/profile.html:37
 msgid "Age"
-msgstr ""
+msgstr "Жашы"
 
-#: templates/accounts/profile.html:40
+#: templates/accounts/profile.html:28
 msgid "Edit"
-msgstr ""
+msgstr "Алмаштыруу"
+
+#: templates/accounts/profile.html:48
+msgid "Card"
+msgstr "Мумкунчулук картасы"
+
+#: templates/accounts/profile.html:94
+msgid "History"
+msgstr "Сатып алуулар"
 
 #: templates/accounts/registration.html:3
 msgid "Registration"
-msgstr ""
+msgstr "Катталуу"
 
-#: templates/accounts/registration.html:5
-msgid "Please fill the registration form"
-msgstr ""
+#: templates/accуounts/registration.html:10
+msgid "Join Today"
+msgstr "Бугун кошулунуз"
+
+#: templates/accounts/registration.html:27
+msgid "Already Have An Account?"
+msgstr "Аккаунтунуз барбы?"
 
 #: templates/accounts/sign_in.html:3
-msgid "Welcome to our web-site"
-msgstr ""
+msgid "Welcome to our Stay-Active"
+msgstr "Биздин Stay-Active сайтыбызга кош келиниз"
 
-#: templates/accounts/sign_in.html:8
-msgid "Log in"
-msgstr ""
+#: templates/accounts/sign_in.html:10
+msgid "Log In"
+msgstr "Кируу"
+
+#: templates/accounts/sign_in.html:14
+msgid "Login"
+msgstr "Кируу"
+
+#: templates/accounts/sign_in.html:22
+msgid "Need An Account?"
+msgstr "Аккаунт керекпи?"
+
+#: templates/accounts/sign_in.html:22
+msgid "Sign Up Now"
+msgstr "Азыр катталуу"
 
 #: templates/accounts/successfully_registered.html:3
 msgid "Your account has been registered successfully"
-msgstr ""
+msgstr "Аккаунтунуз ийгиликтуу катталды"
 
 #: templates/accounts/successfully_registered.html:5
 msgid "Congratulations! You have been registered successfully!"
-msgstr ""
+msgstr "Куттуктайбыз, Ийгиликтуу катталдыныз!"
 
 #: templates/accounts/successfully_registered.html:6
 msgid "Activation code has been sent to your email"
-msgstr ""
+msgstr "Активация коду почта дарегизге жонотулду"
 
 #: templates/applications/base.html:46 templates/applications/base.html:129
 #: templates/applications/blog.html:15
@@ -371,34 +410,55 @@ msgstr ""
 #: templates/applications/club_detail.html:15
 #: templates/applications/search.html:15
 msgid "Home"
-msgstr ""
+msgstr "Башкы баракча"
 
 #: templates/applications/base.html:47
 #: templates/applications/club_category.html:15
 #: templates/applications/club_detail.html:16
 #: templates/applications/search.html:16
 msgid "Clubs"
-msgstr ""
+msgstr "Клубтар"
 
 #: templates/applications/base.html:48 templates/applications/cards.html:15
 msgid "Offers"
-msgstr ""
+msgstr "Сунуштар"
 
-#: templates/applications/base.html:49 templates/applications/base.html:133
+#: templates/applications/base.html:49 templates/applications/base.html:50
+#: templates/applications/base.html:133
 msgid "News"
-msgstr ""
+msgstr "Жанылыктар"
 
 #: templates/applications/base.html:51
 msgid "Contact"
-msgstr ""
+msgstr "Байланышуу"
+
+#: templates/applications/base.html:88
+msgid "Search"
+msgstr "Издоо"
+
+#: templates/applications/base.html:103
+msgid "Profile"
+msgstr "Профиль"
+
+#: templates/applications/base.html:104
+msgid "signout"
+msgstr "чыгуу"
+
+#: templates/applications/base.html:106
+msgid "signup"
+msgstr "катталуу"
+
+#: templates/applications/base.html:107
+msgid "signin"
+msgstr "кируу"
 
 #: templates/applications/base.html:130
 msgid "About us"
-msgstr ""
+msgstr "Биз жонундо"
 
 #: templates/applications/base.html:131
 msgid "Classes"
-msgstr ""
+msgstr "Сабактар"
 
 #: templates/applications/base.html:132
 msgid "Instructors"
@@ -408,7 +468,7 @@ msgstr ""
 #: templates/applications/blog_category.html:16
 #: templates/applications/blog_detail.html:16
 msgid "Blog"
-msgstr ""
+msgstr "Блог"
 
 #: templates/applications/blog.html:59 templates/applications/blog.html:96
 #: templates/applications/blog_category.html:52
@@ -416,31 +476,31 @@ msgstr ""
 #: templates/applications/blog_detail.html:86
 #: templates/applications/index.html:18 templates/applications/index.html:23
 msgid "Read More"
-msgstr ""
+msgstr "Иликтоо"
 
 #: templates/applications/clubs.html:24
 msgid "only for Men "
-msgstr ""
+msgstr "Эркектер учун"
 
 #: templates/applications/clubs.html:25
 msgid "only for Women"
-msgstr ""
+msgstr "Аялдар учун"
 
 #: templates/applications/clubs.html:26
 msgid "for Both"
-msgstr ""
+msgstr "Баарына"
 
 #: templates/applications/index.html:12
 msgid "Be Fit.Top Gym"
-msgstr ""
+msgstr "Соонун абалга келиниз. Биздин Залдар."
 
 #: templates/applications/index.html:17
 msgid "Be Fit.Best Pools"
-msgstr ""
+msgstr "Рахаттаныз. Соонун Бассейндер"
 
 #: templates/applications/index.html:22
 msgid "Be Fit.Awesome Yoga"
-msgstr ""
+msgstr "Денени сезиниз. Укмуш Йога"
 
 #: templates/openid/login.html:9
 msgid "OpenID Sign In"
@@ -449,7 +509,7 @@ msgstr ""
 #: templates/socialaccount/authentication_error.html:5
 #: templates/socialaccount/authentication_error.html:8
 msgid "Social Network Login Failure"
-msgstr ""
+msgstr "Социалдык аккаунт менен кируу ишке ашкан жок"
 
 #: templates/socialaccount/authentication_error.html:10
 msgid ""
@@ -496,50 +556,3 @@ msgid ""
 "%(site_name)s. As a final step, please complete the following form:"
 msgstr ""
 
-#: virtual/lib/python3.9/site-packages/django/views/templates/default_urlconf.html:7
-msgid "Django: the Web framework for perfectionists with deadlines."
-msgstr ""
-
-#: virtual/lib/python3.9/site-packages/django/views/templates/default_urlconf.html:346
-#, python-format
-msgid ""
-"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
-"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
-msgstr ""
-
-#: virtual/lib/python3.9/site-packages/django/views/templates/default_urlconf.html:368
-msgid "The install worked successfully! Congratulations!"
-msgstr ""
-
-#: virtual/lib/python3.9/site-packages/django/views/templates/default_urlconf.html:369
-#, python-format
-msgid ""
-"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
-"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
-"\">DEBUG=True</a> is in your settings file and you have not configured any "
-"URLs."
-msgstr ""
-
-#: virtual/lib/python3.9/site-packages/django/views/templates/default_urlconf.html:384
-msgid "Django Documentation"
-msgstr ""
-
-#: virtual/lib/python3.9/site-packages/django/views/templates/default_urlconf.html:385
-msgid "Topics, references, &amp; how-to’s"
-msgstr ""
-
-#: virtual/lib/python3.9/site-packages/django/views/templates/default_urlconf.html:396
-msgid "Tutorial: A Polling App"
-msgstr ""
-
-#: virtual/lib/python3.9/site-packages/django/views/templates/default_urlconf.html:397
-msgid "Get started with Django"
-msgstr ""
-
-#: virtual/lib/python3.9/site-packages/django/views/templates/default_urlconf.html:408
-msgid "Django Community"
-msgstr ""
-
-#: virtual/lib/python3.9/site-packages/django/views/templates/default_urlconf.html:409
-msgid "Connect, get help, or contribute"
-msgstr ""

@@ -1,0 +1,36 @@
+{% extends 'accounts/base.html' %}
+{% load static i18n %}
+{% block title %}{% trans 'Registration' %}{% endblock title %}
+{% block content %}
+
+
+    <div class="content-section">
+        <div class="container">
+            <form method="POST">
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">{% trans 'Join Today' %}</legend>
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                </fieldset>
+                <div class="form-group">
+                    <script src='https://www.google.com/recaptcha/api.js'></script>
+            <div class="form-group g-recaptcha recaptcha" data-sitekey="6LcK7X8aAAAAAIzIaA-v2_lMYnjqQcz0VylrY3Rb"></div>
+                 {% if messages %}
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                 {% endif %}
+                    <button class="btn btn-outline-info" type="submit">{% trans 'Sign Up' %}</button>
+                </div>
+            </form>
+            <div class="border-top pt-3 already ">
+                <small class="text-muted">
+                    {% trans 'Already Have An Account?' %} <a class="ml-2" href="{% url 'sign-in' %}">{% trans 'Sign In' %}</a>
+                </small>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

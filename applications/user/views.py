@@ -14,13 +14,13 @@ from applications.user.models import User
 class RegistrationView(CreateView):
     model = User
     form_class = RegistrationForm
-    template_name = 'accounts/registration.html'
+    template_name = 'accounts/test_registor.html'
 
     def form_valid(self, form):
         if self.request.recaptcha_is_valid:
             form.save()
             return render(self.request, 'accounts/successfully_registered.html', self.get_context_data())
-        return render(self.request, 'accounts/registration.html', self.get_context_data())
+        return render(self.request, 'accounts/test_registor.html', self.get_context_data())
 
 
 class SuccessfulRegistrationView(View):

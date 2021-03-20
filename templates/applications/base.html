@@ -33,14 +33,14 @@
     </div>
     <header class="header-section">
         <div class="container">
-            <div class="row">
+            <div class="row"></div>
                 <div class="col-lg-12">
                     <div class="main-menu">
-                        <div class="logo">
+                        <!-- <div class="logo">
                             <a href="{% url 'home' %}">
                                 <img src="{% static 'img/logo1.png' %}" alt="">
                             </a>
-                        </div>
+                        </div> -->
                         <nav class="mobile-menu">
                             <ul>
                                 <li><a href="{% url 'home' %}">{% trans 'Home' %}</a></li>
@@ -48,69 +48,64 @@
                                 <li><a href="{% url 'cards' %}">{% trans 'Offers' %}</a></li>
                                 <li><a href="{% url 'blog' %}">{% trans 'News' %}</a></li>
                                 <li><a href="{% url 'blog' %}">{% trans 'News' %}</a></li>
-                                <li><a href="./contact.html">{% trans 'Contact' %}</a></li>
-                                <li class="search-btn search-trigger"><i class="fa fa-search"></i></li>
+                                <li><a href="{% url 'wishes' %}">{% trans 'Contact' %}</a></li>
+                                <li class="search-btn search-trigger">
+                                    <form action="{% url 'clubs' %}">
+                                        <input type="search" placeholder="Type Keywords">
+                                        <button type="submit">{% trans 'Search' %}</button>
+                                    </form>
+                                    
+                                </li>
+                                <li>
+                                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                                        <input name="next" type="hidden" value="{{ redirect_to }}">
+                                        <select name="language">
+                                            {% get_current_language as LANGUAGE_CODE %}
+                                            {% get_available_languages as LANGUAGES %}
+                                            {% get_language_info_list for LANGUAGES as languages %}
+                                            {% for language in languages %}
+                                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                                                        selected{% endif %}>
+                                                    {{ language.name_local }} 
+                                                </option>
+                                            {% endfor %}
+                                        </select>
+                                        <button type="submit" value="Go"></button>
+                                    </form>          
+                                </li>
                             </ul>
                         </nav>
-                        <div id="mobile-menu-wrap"></div>
-                         <li>
-                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-                        <input name="next" type="hidden" value="{{ redirect_to }}">
-                        <select name="language">
-                            {% get_current_language as LANGUAGE_CODE %}
-                            {% get_available_languages as LANGUAGES %}
-                            {% get_language_info_list for LANGUAGES as languages %}
-                            {% for language in languages %}
-                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
-                                        selected{% endif %}>
-                                    {{ language.name_local }} ({{ language.code }})
-                                </option>
-                            {% endfor %}
-                        </select>
-                        <input type="submit" value="Go">
-                    </form>
-                </li>
+                        <div id="mobile-menu-wrap"></div>                    
                     </div>
+                    
+
+                
                 </div>
             </div>
+        </div>
+        <!-- Top Social Begin -->
+        <div class="top-social">
+            <div class="top-social-links">
+                
+                    {% if user.is_authenticated %}
+                    <p>Welcome, {{ user.email }} !</p><br>
+                    <a href="{% url 'profile' %}">{% trans 'Profile' %}</a>
+                    <a href="{% url 'logout' %}">{% trans 's' %}</a>
+                    {% else %}
+                    <a href="{% url 'registration' %}">{% trans 'signup'%}</a>
+                    <a href="{% url 'sign-in' %}">{% trans 'signin' %}</a>
+                    <a href="{% provider_login_url 'google' %}">Google</a>
+                    <a href="{% provider_login_url 'facebook' method='oauth2' %}">Facebook</a><br>
+                    {% endif %}
+                
+            </div>
+        </div>
         </div>
     </header>
     <!-- Header End -->
     <!-- Search Bar Begin -->
-    <section class="search-bar-wrap">
-        <span class="search-close"><i class="fa fa-close"></i></span>
-        <div class="search-bar-table">
-            <div class="search-bar-tablecell">
-                <div class="search-bar-inner">
-                    <h2>Search</h2>
-                    <form action="{% url 'clubs' %}">
-                        <input type="search" placeholder="Type Keywords">
-                        <button type="submit">{% trans 'Search' %}}</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Search Bar End -->
-    <!-- Top Social Begin -->
+    
 
-
-    <div class="top-social">
-        <div class="top-social-links">
-            <ul>
-                {% if user.is_authenticated %}
-                <p>Welcome, {{ user.email }} !</p><br>
-                <a href="{% url 'profile' %}">{% trans 'Profile' %}</a>
-                <li><a href="{% url 'logout' %}">{% trans 'signout' %}</a>
-                {% else %}
-                <li><a href="{% url 'registration' %}">{% trans 'signup'%}</a></li>
-                <li><a href="{% url 'sign-in' %}">{% trans 'signin' %}</a></li>
-                <a href="{% provider_login_url 'google' %}">Google</a>
-                <a href="{% provider_login_url 'facebook' method='oauth2' %}">Facebook</a><br>
-                {% endif %}
-            </ul>
-        </div>
-    </div>
 
 {% block content %}
 
@@ -131,7 +126,7 @@
                                 <li><a href="#">{% trans 'Classes' %}</a></li>
                                 <li><a href="#">{% trans 'Instructors' %}</a></li>
                                 <li><a href="#">{% trans 'News' %}</a></li>
-                                <li><a href="#">{% trans 'Contact' %]</a></li>
+                                <li><a href="#">{% trans 'Contact' %}</a></li>
                             </ul>
                         </div>
                         <div class="subscribe-form">

@@ -12,3 +12,5 @@ def send_activation_code(user):
         'Account activation', message,
         EMAIL_HOST_USER,
         [user.email, ])
+
+
